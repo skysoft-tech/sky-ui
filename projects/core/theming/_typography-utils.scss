@@ -1,0 +1,36 @@
+@use "sass:map";
+
+
+/// Defines a typography level for theme.
+/// @param {String} $font-size The font-size for this level.
+/// @param {String | Number} $line-height The line-height for this level.
+/// @param {String | Number} $font-weight The font-weight for this level.
+/// @param {String} $font-family The font-family for this level.
+/// @param {String} $letter-spacing The letter-spacing for this level.
+/// @returns {Map} A map representing the definition of this typpographic level.
+@function define-typography-level(
+  $font-size,
+  $line-height: $font-size,
+  $font-weight: 500,
+  $font-family: null,
+  $letter-spacing: normal) {
+
+  @return (
+    font-size: $font-size,
+    line-height: $line-height,
+    font-weight: $font-weight,
+    font-family: $font-family,
+    letter-spacing: $letter-spacing
+  );
+}
+
+/// Emits CSS styles for the given typography level.
+/// @param {Map} $theme A typography theme.
+/// @param {Map} $level A typography level.
+@mixin typography-level($theme, $level) {
+  font-size: map.get($theme, 'text-#{$level}-font-size');
+  font-weight: map.get($theme, 'text-#{$level}-font-weight');
+  line-height: map.get($theme, 'text-#{$level}-line-height');
+  font-family: map.get($theme, 'text-#{$level}-font-family');
+  letter-spacing: map.get($theme, 'text-#{$level}-letter-spacing');
+}
