@@ -2,13 +2,13 @@
 
 @use 'theming' as theming;
 
-$mapping:(
+$mapping: (
   text-color: color-foreground-accent,
   link-color: color-primary,
-  title-color: color-foreground
+  title-color: color-foreground,
 );
 
-@mixin apply-theme($theme-config){
+@mixin apply-theme($theme-config) {
   $theme: theming.apply-mapping($theme-config, $mapping);
 
   h1 {
@@ -16,7 +16,7 @@ $mapping:(
 
     @include theming.typography-level($theme, 'headline-1');
 
-    &.title{
+    &.title {
       @include theming.typography-level($theme, 'primary');
       color: theming.get($theme, 'title-color');
     }
@@ -32,11 +32,11 @@ $mapping:(
     color: theming.get($theme, 'title-color');
   }
 
-  a{
+  a {
     color: theming.get($theme, 'link-color');
   }
 
-  body{
+  body {
     color: theming.get($theme, 'text-color');
   }
 }

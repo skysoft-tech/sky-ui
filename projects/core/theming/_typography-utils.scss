@@ -1,5 +1,4 @@
-@use "sass:map";
-
+@use 'sass:map';
 
 /// Defines a typography level for theme.
 /// @param {String} $font-size The font-size for this level.
@@ -13,8 +12,8 @@
   $line-height: $font-size,
   $font-weight: 500,
   $font-family: null,
-  $letter-spacing: normal) {
-
+  $letter-spacing: normal
+) {
   @return (
     font-size: $font-size,
     line-height: $line-height,

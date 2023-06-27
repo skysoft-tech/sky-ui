@@ -1,6 +1,6 @@
-@use "./typography-utils" as typography;
+@use './typography-utils' as typography;
 
-$fontfamily: "sans-serif";
+$fontfamily: 'sans-serif';
 
 $theme: (
   color: (
@@ -33,13 +33,13 @@ $theme: (
     success-hover: #31b484,
     success-pressed: #2ca076,
 
-    shadow:#1b2549,
+    shadow: #1b2549,
 
     illness: #ffc5cd,
     vacation: #d4c8f5,
     from-home: #c3efdf,
     selected: #0075ff,
-    selected-body: #66acff
+    selected-body: #66acff,
   ),
   text: (
     main-font: $fontfamily,

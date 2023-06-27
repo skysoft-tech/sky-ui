@@ -1,11 +1,10 @@
-@use "sass:map";
-@use "./default.theme" as default;
-
+@use 'sass:map';
+@use './default.theme' as default;
 
 /// Defaine new theme that will override default theme styles
 /// @param {Map} $theme-config map this theme values
 /// @returns {Map} Flat map merged with default theme
-@function define-theme($theme-config){
+@function define-theme($theme-config) {
   $default-theme: build(default.$theme);
   $new-theme: build($theme-config);
 
@@ -15,19 +14,16 @@
 /// Create flat map for the provided theme
 /// @param {Map} $theme-config Map that present a theme with hierarchical tree-like structure
 /// @returns {Map} Map with flat structure, keys are concatenated
-@function build($theme-config){
+@function build($theme-config) {
   $flat-theme: ();
 
   @each $key, $value in $theme-config {
-
     @if (is-map($value)) {
-
       // if internal value is also a map perform the same flattering for it
       $inner-flattering: build($value);
       @each $inner-key, $inner-value in $inner-flattering {
         $flat-theme: map.set($flat-theme, $key + '-' + $inner-key, $inner-value);
       }
-
     } @else {
       $flat-theme: map.set($flat-theme, $key, $value);
     }
@@ -40,7 +36,7 @@
 /// @param {Map} $theme Theme in form of the flat map
 /// @param {String} $key Key that shoul be selected
 /// @return {String} The value from theme
-@function get($theme, $key){
+@function get($theme, $key) {
   @return map.get($theme, $key);
 }
 
@@ -48,22 +44,21 @@
 /// @param {Map} $theme Theme in form of the flat map
 /// @param {Map} $theme Map with correspondence between component key and key from the theme
 /// @return {Map} Updated theme
-@function apply-mapping($theme, $mapping){
+@function apply-mapping($theme, $mapping) {
   $component-theme: ();
 
   @each $key, $value in $mapping {
     $value-from-theme: map.get($theme, $value);
-    @if ($value-from-theme){
+    @if ($value-from-theme) {
       $component-theme: map.set($component-theme, $key, $value-from-theme);
     } @else {
       $component-theme: map.set($component-theme, $key, $value);
     }
-
   }
 
   @return map.merge($component-theme, $theme);
 }
 
-@function is-map($var){
+@function is-map($var) {
   @return type-of($var) == 'map';
 }
