@@ -10,6 +10,11 @@
   "scripts": {
     "build": "nx build",
     "build:all": "nx run-many --target=build --all",
+    "test": "nx test",
+    "test:coverage": "npm run test -- --coverage",
+    "test:all": "nx run-many --target=test --all",
+    "test:coverage:all": "nx run-many --target=test --all --coverage",
+    "affected:test": "nx affected:test",
     "generate": "nx g @nx/angular:library %npm_config_name% --buildable --publishable --import-path=@sky-ui/%npm_config_name% --prefix=sky"
   },
   "private": true,

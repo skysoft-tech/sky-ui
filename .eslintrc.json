@@ -31,7 +31,8 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
-        "@angular-eslint/no-host-metadata-property": ["error", { "allowStatic": true }]
+        "@angular-eslint/no-host-metadata-property": ["error", { "allowStatic": true }],
+        "@typescript-eslint/no-inferrable-types": "off"
       }
     },
     {

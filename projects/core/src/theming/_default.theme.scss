@@ -1,0 +1,67 @@
+@use './typography-utils' as typography;
+
+$fontfamily: 'sans-serif';
+
+$theme: (
+  color: (
+    primary: #0075ff,
+    primary-hover: #006ae5,
+    primary-pressed: #005ecc,
+
+    accent: #0075ff,
+    accent-hover: #006ae5,
+    accent-pressed: #005ecc,
+
+    background: #ffffff,
+    background-hover: #f5f5f8,
+    background-pressed: #e1e1ea,
+
+    borders: #dfe1e6,
+    disabled: #f5f5f8,
+
+    foreground: #393939,
+    foreground-accent: #848485,
+    foreground-contrast: #ffffff,
+
+    placeholder: #848485,
+
+    warning: #fe3d57,
+    warning-hover: #fe2542,
+    warning-pressed: #fe0b2c,
+
+    success: #37c893,
+    success-hover: #31b484,
+    success-pressed: #2ca076,
+
+    shadow: #1b2549,
+
+    illness: #ffc5cd,
+    vacation: #d4c8f5,
+    from-home: #c3efdf,
+    selected: #0075ff,
+    selected-body: #66acff,
+  ),
+  text: (
+    main-font: $fontfamily,
+    secondary-font: $fontfamily,
+    primary: typography.define-typography-level(1rem),
+    headline-1: typography.define-typography-level(1rem),
+    headline-2: typography.define-typography-level(1rem),
+    headline-3: typography.define-typography-level(1rem),
+    headline-4: typography.define-typography-level(1rem),
+    headline-5: typography.define-typography-level(1rem),
+    headline-6: typography.define-typography-level(1rem),
+    body-1: typography.define-typography-level(1rem),
+    body-2: typography.define-typography-level(1rem),
+    body-3: typography.define-typography-level(1rem),
+  ),
+  misc: (
+    border-width-1: 1px,
+    border-width-2: 1px,
+    border-radius-1: 4px,
+    border-radius-2: 4px,
+    border-radius-3: 4px,
+  ),
+);
+
+// @debug  theming.theme-flattening($theme);

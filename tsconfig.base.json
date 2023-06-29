@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sky-ui/test": ["projects/test/src/index.ts"],
-      "@sky-ui/test1": ["projects/test1/src/index.ts"]
+      "@sky-ui/core": ["projects/core/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
