@@ -9,9 +9,9 @@ describe('AppComponent', () => {
         }).compileComponents();
     });
 
-    it(`should have as title 'tester'`, () => {
+    it(`should have as title 'dev-app'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-        expect(app.title).toEqual('tester');
+        expect(app.title).toEqual('dev-app');
     });
 });
