@@ -1,7 +1,3 @@
-/*
- * Public API Surface of core
- */
-
 export * from './lib/tools';
 export * from './lib/errors';
 

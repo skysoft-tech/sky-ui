@@ -1,8 +1,15 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/core",
+  "dest": "../../dist/projects/core",
   "lib": {
-    "entryFile": "./public-api.ts"
-  },
-  "assets": ["./theming"]
+    "entryFile": "src/index.ts"
+  }
+  ,
+  "assets": [
+    {
+      "input": "src/theming",
+      "glob": "**/*",
+      "output": "./theming/"
+    }
+  ]
 }
