@@ -1,0 +1,24 @@
+:host {
+  position: relative;
+}
+
+.loader:after {
+  content: " ";
+  display: flex;
+  width: 2.5em;
+  height: 2.5em;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
