@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "start:tester": "nx serve tester",
     "build": "nx build",
     "build:all": "nx run-many --target=build --all",
     "test": "nx test",
