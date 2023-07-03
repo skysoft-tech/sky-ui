@@ -7,9 +7,9 @@
   ,
   "assets": [
     {
-      "input": "src/theming",
+      "input": "src/lib/theming",
       "glob": "**/*",
-      "output": "./theming/"
+      "output": "./lib/theming/"
     }
   ]
 }
