@@ -3,8 +3,7 @@
   "dest": "../../dist/projects/core",
   "lib": {
     "entryFile": "src/index.ts"
-  }
-  ,
+  },
   "assets": [
     {
       "input": "src/lib/theming",

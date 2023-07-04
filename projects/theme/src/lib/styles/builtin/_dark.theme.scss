@@ -1,0 +1,70 @@
+@use 'sass:color';
+@use 'projects/core/src/lib/theming' as typography;
+
+$primary-color: #0075ff;
+$accent-color: #0075ff;
+$success-color: #37c893;
+$warning-color: #FE3D57;
+$background: #1B1C26;
+
+$color:(
+  primary: $primary-color, //0075ff
+  primary-hover: color.adjust($primary-color, $lightness: -5%), //006ae5
+  primary-pressed: color.adjust($primary-color, $lightness: -10%), //005ecc
+
+  accent: $accent-color,
+  accent-hover: color.adjust($accent-color, $lightness: -5%), //006ae5
+  accent-pressed: color.adjust($accent-color, $lightness: -10%), //005ecc
+
+  background: $background,
+  background-accent: #14151C,
+  background-hover: #182741,
+  background-pressed: #E1E1EA,
+
+  borders: #383952,
+  disabled: #14151C,
+
+  foreground: #797892,
+  foreground-accent: #FFFFFF,
+  foreground-contrast: #FFFFFF,
+  foreground-blured: #4D4D61,
+  foreground-title: #FFFFFF,
+
+  placeholder: #797892,
+
+  warning: $warning-color,
+  warning-hover: color.adjust($warning-color, $lightness: -5%),
+  warning-pressed: color.adjust($warning-color, $lightness: -10%),
+
+  success: $success-color,
+  success-hover: color.adjust($success-color, $lightness: -5%),
+  success-pressed: color.adjust($success-color, $lightness: -10%),
+
+  shadow:#1b2549
+);
+
+$text: (
+  main-font: 'Museo Sans Cyrl',
+  primary: typography.define-typography-level(36px, $font-weight: 700, $letter-spacing: 0.5px),    // title
+  headline-1: typography.define-typography-level(24px,  2.5),              // page header
+  headline-2: typography.define-typography-level(16px, $font-weight: 700), // breadcrumbs
+  headline-3: typography.define-typography-level(14px),                    // sub-header
+
+  body-1: typography.define-typography-level(14px), // main text
+  body-2: typography.define-typography-level(14px), // description
+  body-3: typography.define-typography-level(16px), // side menu
+);
+
+$misc: (
+  border-width-1: 1px,
+  border-width-2: 1px,
+  border-radius-1: 4px,
+  border-radius-2: 8px,
+  border-radius-3: 3px
+);
+
+$light-theme-config: (
+  color: $color,
+  text: $text,
+  misc: $misc
+);

@@ -1,0 +1,19 @@
+@use 'projects/core/src/lib/theming' as theming;
+
+@use "./builtin/light.theme" as light-theme;
+@use "./builtin/dark.theme" as dark-theme;
+@use "./builtin/components" as components;
+
+
+@mixin apply-theme($theme-config) {
+  $theme: theming.define-theme($theme-config);
+  @include components.all-components-theme($theme);
+}
+
+@mixin apply-light-theme() {
+  @include apply-theme(light-theme.$light-theme-config);
+}
+
+@mixin apply-dark-theme() {
+  @include apply-theme(dark-theme.$dark-theme-config);
+}
