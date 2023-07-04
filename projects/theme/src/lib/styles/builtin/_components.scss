@@ -1,0 +1,8 @@
+@use "projects/breadcrumb/src/lib/breadcrumb.theme" as breadcrumb;
+@use "./typography" as typography;
+
+@mixin all-components-theme($theme) {
+  @include breadcrumb.apply-theme($theme);
+
+  @include typography.apply-theme($theme);
+};

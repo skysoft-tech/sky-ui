@@ -1,6 +1,6 @@
 @use 'sass:string';
 
-@use 'theming' as theming;
+@use 'projects/core/src/lib/theming' as theming;
 
 $mapping: (
   text-color: color-foreground-accent,
