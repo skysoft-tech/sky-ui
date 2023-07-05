@@ -1,0 +1,163 @@
+@use 'sass:color';
+@use 'projects/core/src/lib/theming/' as theming;
+
+$button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
+
+@mixin apply-theme($global-theme) {
+
+  $accent-color: theming.get($global-theme, 'color-warning');
+
+  $accent-light: color.adjust($accent-color, $lightness: 45%); //E5F1FF
+  $accent-light-hover: color.adjust($accent-color, $lightness: 40%); //CCE3FF
+  $accent-light-pressed: color.adjust($accent-color, $lightness: 35%); //B3D6FF
+
+  $mapping: (
+    button-border-radius: misc-border-radius-1,
+    button-border-width: border-width-1,
+
+    button-text-font-size: text-button-medium-font-size,
+    button-text-line-height: text-button-medium-line-height,
+
+    // basic button
+    button-basic-background-color: transparent,
+    button-basic-border-color: transparent,
+    button-basic-text-color: color-foreground-accent,
+    button-basic-hover-background-color: color-background-hover,
+    button-basic-hover-border-color: color-background-hover,
+    button-basic-hover-text-color: color-foreground-accent,
+    button-basic-pressed-background-color: color-background-pressed,
+    button-basic-pressed-border-color: color-background-pressed,
+    button-basic-pressed-text-color: color-foreground-accent,
+    button-basic-disabled-background-color: background-disabled,
+    button-basic-disabled-border-color: background-disabled,
+    button-basic-disabled-text-color: color-foreground,
+
+    // primary button
+    button-primary-background-color: color-accent,
+    button-primary-border-color: color-accent,
+    button-primary-text-color: color-foreground-contrast,
+    button-primary-hover-background-color: color-accent-hover,
+    button-primary-hover-border-color: color-accent-hover,
+    button-primary-hover-text-color: color-foreground-contrast,
+    button-primary-pressed-background-color: color-accent-pressed,
+    button-primary-pressed-border-color: color-accent-pressed,
+    button-primary-pressed-text-color: color-foreground-contrast,
+    button-primary-disabled-background-color: color-disabled,
+    button-primary-disabled-border-color: color-disabled,
+    button-primary-disabled-text-color: color-foreground,
+
+    // accent button
+    button-accent-background-color: $accent-light,
+    button-accent-border-color: $accent-light,
+    button-accent-text-color: color-foreground-accent,
+    button-accent-hover-background-color: $accent-light-hover,
+    button-accent-hover-border-color: $accent-light-hover,
+    button-accent-hover-text-color: color-foreground-accent,
+    button-accent-pressed-background-color: $accent-light-pressed,
+    button-accent-pressed-border-color: $accent-light-pressed,
+    button-accent-pressed-text-color: color-foreground-accent,
+    button-accent-disabled-background-color: color-disabled,
+    button-accent-disabled-border-color: color-disabled,
+    button-accent-disabled-text-color: color-foreground,
+
+    // success button
+    button-success-background-color: color-success,
+    button-success-border-color: color-success,
+    button-success-text-color: color-foreground-contrast,
+    button-success-hover-background-color: color-success-hover,
+    button-success-hover-border-color: color-success-hover,
+    button-success-hover-text-color: color-foreground-contrast,
+    button-success-pressed-background-color: color-success-pressed,
+    button-success-pressed-border-color: color-success-pressed,
+    button-success-pressed-text-color: color-foreground-contrast,
+    button-success-disabled-background-color: color-disabled,
+    button-success-disabled-border-color: color-disabled,
+    button-success-disabled-text-color: color-foreground,
+
+    // warning button
+    button-warning-background-color: color-warning,
+    button-warning-border-color: color-warning,
+    button-warning-text-color: color-foreground-contrast,
+    button-warning-hover-background-color: color-warning-hover,
+    button-warning-hover-border-color: color-warning-hover,
+    button-warning-hover-text-color: color-foreground-contrast,
+    button-warning-pressed-background-color: color-warning-pressed,
+    button-warning-pressed-border-color: color-warning-pressed,
+    button-warning-pressed-text-color: color-foreground-contrast,
+    button-warning-disabled-background-color: color-disabled,
+    button-warning-disabled-border-color: color-disabled,
+    button-warning-disabled-text-color: color-foreground,
+  );
+
+  $theme: theming.apply-mapping($global-theme, $mapping);
+
+  .sky-button {
+    @include button-reset();
+
+    // Make anchors render like buttons.
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+
+    // sizing
+    margin: 0;
+    padding: 0 16px;
+    min-width: 64px;
+    line-height: 32px;
+    border-radius: theming.get($theme, 'button-border-radius');
+
+    transition: opacity 200ms cubic-bezier(0.35, 0, 0.25, 1), background-color 200ms cubic-bezier(0.35, 0, 0.25, 1);
+
+    @each $color-type in $button-styles {
+      &.sky-#{$color-type} {
+        background-color: theming.get($theme, button-#{$color-type}-background-color);
+        border-color: theming.get($theme, button-#{$color-type}-border-color);
+        color: theming.get($theme, button-#{$color-type}-text-color);
+
+        &:focus {
+          background-color: theming.get($theme, button-#{$color-type}-hover-background-color);
+          border-color: theming.get($theme, button-#{$color-type}-hover-border-color);
+          color: theming.get($theme, button-#{$color-type}-hover-text-color);
+        }
+
+        &:hover {
+          background-color: theming.get($theme, button-#{$color-type}-hover-background-color);
+          border-color: theming.get($theme, button-#{$color-type}-hover-border-color);
+          color: theming.get($theme, button-#{$color-type}-hover-text-color);
+        }
+
+        &:active {
+          background-color: theming.get($theme, button-#{$color-type}-pressed-background-color);
+          border-color: theming.get($theme, button-#{$color-type}-pressed-border-color);
+          color: theming.get($theme, button-#{$color-type}-pressed-text-color);
+        }
+
+        &[disabled],
+        &.btn-disabled {
+          background-color: theming.get($theme, button-#{$color-type}-disabled-background-color);
+          border-color: theming.get($theme, button-#{$color-type}-disabled-border-color);
+          color: theming.get($theme, button-#{$color-type}-disabled-text-color);
+        }
+      }
+    }
+  }
+}
+
+
+@mixin button-reset {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // The `outline: none` from above works on all browsers, however Firefox also
+  // adds a special `focus-inner` which we have to disable explicitly. See:
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
