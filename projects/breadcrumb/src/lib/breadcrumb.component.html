@@ -1,0 +1,5 @@
+<ul class="wrapper-breadcrumb">
+  <li *ngFor="let breadcrumb of breadcrumbsToRender">
+    <span [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</span>
+  </li>
+</ul>

@@ -1,0 +1,34 @@
+@use 'projects/core/src/lib/theming/' as theming;
+
+$mapping:(
+  current-text-color:color-foreground-title,
+  text-color: color-foreground-accent,
+  hover-color:color-foreground
+);
+
+
+@mixin apply-theme($theme-breadcrumb){
+  $theme: theming.apply-mapping($theme-breadcrumb, $mapping);
+  .sky-breadcrumb {
+    .wrapper-breadcrumb{
+      a,span {
+        color: theming.get($theme, text-color);
+      }
+
+      a:hover,
+      span:hover {
+        color: theming.get($theme, hover-color);
+      }
+
+      li::after {
+        color: theming.get($theme, current-text-color)
+      }
+
+      li:last-child{
+        span{
+          color: theming.get($theme, current-text-color)
+        }
+      }
+    }
+  }
+}

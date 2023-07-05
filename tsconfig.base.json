@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@sky-ui/breadcrumb": ["projects/breadcrumb/src/index.ts"],
       "@sky-ui/core": ["projects/core/src/index.ts"],
       "@sky-ui/date-adapter": ["projects/date-adapter/src/index.ts"],
       "@sky-ui/loader": ["projects/loader/src/index.ts"],
