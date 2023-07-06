@@ -19,6 +19,7 @@
       "@sky-ui/breadcrumb": ["projects/breadcrumb/src/index.ts"],
       "@sky-ui/core": ["projects/core/src/index.ts"],
       "@sky-ui/date-adapter": ["projects/date-adapter/src/index.ts"],
+      "@sky-ui/icons": ["projects/icons/src/index.ts"],
       "@sky-ui/loader": ["projects/loader/src/index.ts"],
       "@sky-ui/theme": ["projects/theme/src/index.ts"]
     }
