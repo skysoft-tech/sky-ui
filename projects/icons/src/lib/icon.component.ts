@@ -22,7 +22,6 @@ export class SkyIconComponent implements OnChanges {
     constructor(private iconRegistry: SkyIconRegistry, private sanitizer: DomSanitizer) {}
 
     ngOnChanges(changes: SimpleChanges): void {
-        console.log('aaaaaaaaaaaaaaa');
         if (changes['src']?.currentValue) {
             this.updateIconWithSrc();
         } else if (changes['name']?.currentValue) {
