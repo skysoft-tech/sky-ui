@@ -1,0 +1,11 @@
+<ng-container *ngIf="showErrors | async">
+  <ng-container *ngIf="showAll; then list; else single"></ng-container>
+
+  <ng-template #list>
+    <ul>
+      <li *ngFor="let errorMessage of errorMessages | async">{{ errorMessage }}</li>
+    </ul>
+  </ng-template>
+
+  <ng-template #single>{{ firstErrorMessage | async }}</ng-template>
+</ng-container>
