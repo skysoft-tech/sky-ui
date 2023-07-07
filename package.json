@@ -16,6 +16,7 @@
     "test:all": "nx run-many --target=test --all",
     "test:coverage:all": "nx run-many --target=test --all --coverage",
     "affected:test": "nx affected:test",
+    "format": "nx format:write",
     "generate": "nx g @nx/angular:library %npm_config_name% --buildable --publishable --import-path=@sky-ui/%npm_config_name% --prefix=sky",
     "inline-svg": "node projects/icons/src/lib/inline-icons.js projects/icons/src/lib/images projects/icons/src/lib"
   },

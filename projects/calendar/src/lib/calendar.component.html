@@ -1,0 +1,17 @@
+<sky-calendar-header></sky-calendar-header>
+<div
+  class="sky-calendar-content"
+  [@changeViewAnimation]="currentView"
+  [ngSwitch]="currentView"
+  cdkMonitorSubtreeFocus
+  tabindex="-1"
+  #calendarContent>
+  <sky-months-view
+    *ngSwitchCase="'months'"
+    [isRange]="isRange"
+    [selected]="selected"
+    [today]="currentDate"
+    [specialDates]="specialDatesDataStream | async">
+  </sky-months-view>
+  <sky-years-view *ngSwitchCase="'years'"> </sky-years-view>
+</div>

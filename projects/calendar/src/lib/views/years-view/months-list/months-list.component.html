@@ -1,0 +1,20 @@
+<cdk-virtual-scroll-viewport #scrollable [itemSize]="itemSize" class="years-list">
+  <ng-container *cdkVirtualFor="let yearWithMonths of yearsWithMonths">
+    <div class="year-block">
+      <div class="year">
+        <span>{{ yearWithMonths.year }}</span>
+      </div>
+      <div class="grid-wrapper">
+        <div class="months">
+          <div
+            (click)="selectMonth(yearWithMonths.year, i)"
+            class="month calendar-cell-content"
+            *ngFor="let month of yearWithMonths.months; let i = index"
+            [ngClass]="{ 'calendar-selected-cell': i === selectedMonth && yearWithMonths.year === calendarYear }">
+            {{ month }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</cdk-virtual-scroll-viewport>

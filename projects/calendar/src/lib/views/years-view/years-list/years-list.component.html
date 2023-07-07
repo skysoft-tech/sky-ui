@@ -1,0 +1,13 @@
+<cdk-virtual-scroll-viewport #scrollable [itemSize]="itemSize" class="years-list">
+  <div
+    #yearBtn
+    type="button"
+    class="year"
+    [ngClass]="{ 'selected-year': year === calendarYear, 'year-disabled': !year }"
+    (click)="selectYear(year, i)"
+    *cdkVirtualFor="let year of years; let i = index">
+    <div class="calendar-cell-content">
+      {{ year ?? '&nbsp;' }}
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

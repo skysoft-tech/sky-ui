@@ -1,0 +1,65 @@
+.years-list {
+  height: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .year-block {
+    display: flex;
+    flex-direction: column;
+
+    .year {
+      position: relative;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+      text-align: center;
+
+      span {
+        position: relative;
+        padding: 0 1rem;
+        z-index: 1;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        top: calc(50% - 0.5px);
+        right: 0;
+      }
+    }
+
+    .grid-wrapper {
+      height: 100%;
+      display: flex;
+      flex: 1 1 auto;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+
+      .months {
+        width: 100%;
+        height: 100%;
+        padding: 0 0.75rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, calc(14rem / 4));
+        grid-row-gap: 0.5rem;
+        grid-column-gap: 0.5rem;
+
+        .month {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

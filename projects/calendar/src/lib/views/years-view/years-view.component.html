@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="years">
+    <sky-years-list
+      [selectedYear]="selectedYear"
+      [calendarYear]="calendarYear"
+      (yearSelected)="updateYear($event)"></sky-years-list>
+    <div class="blur"></div>
+  </div>
+  <div class="months">
+    <sky-months-list
+      [selectedYear]="selectedYear"
+      [calendarYear]="calendarYear"
+      [selectedMonth]="selectedMonth"
+      (monthSelected)="updateMonth($event)"></sky-months-list>
+  </div>
+</div>

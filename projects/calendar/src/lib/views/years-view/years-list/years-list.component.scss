@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.years-list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  position: relative;
+  height: 100%;
+  width: 4rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.year {
+  padding: 0.3rem 0;
+  z-index: 1;
+
+  .calendar-cell-content {
+    padding: 0 1rem;
+    min-width: 4rem;
+    line-height: 2rem;
+    cursor: pointer;
+  }
+
+  &.year-disabled {
+    visibility: hidden;
+  }
+}

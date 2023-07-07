@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  height: 21rem;
+  width: 21rem;
+  font-size: 0.875em;
+
+  .years {
+    margin: 1.5rem 0;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .selector {
+      position: absolute;
+      width: 4rem;
+      height: 2rem;
+    }
+
+    .blur {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  .months {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+}
