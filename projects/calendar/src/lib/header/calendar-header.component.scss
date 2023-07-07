@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  &.date {
+    font-size: 0.875em;
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 0.875em;
+  }
+
+  &.arrow {
+    width: auto;
+    min-width: auto;
+    padding: 0 0.25em;
+  }
+}

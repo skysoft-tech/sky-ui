@@ -1,0 +1,33 @@
+:host {
+  font-size: 1rem;
+  display: block;
+  max-width: 336px;
+
+  .sky-calendar-content {
+    height: 20rem;
+    overflow: hidden;
+  }
+
+  &.small {
+    transform: scale(0.75);
+    --fontSizeCalendarContent: 1.125rem;
+    --fontSizeHeaderCalendar: 1em;
+  }
+
+  &.medium {
+    transform: scale(1);
+    --fontSizeCalendarContent: 1rem;
+    --fontSizeHeaderCalendar: 0.875em;
+  }
+
+  &.large {
+    transform: scale(1.25);
+    --fontSizeCalendarContent: 1rem;
+    --fontSizeHeaderCalendar: 1em;
+  }
+}
+
+::ng-deep :root {
+  --fontSizeCalendarContent: 1em;
+  --fontSizeHeaderCalendar: 1em;
+}

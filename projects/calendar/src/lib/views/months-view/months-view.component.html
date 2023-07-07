@@ -1,0 +1,27 @@
+<div class="calendar-row">
+  <div class="calendar-cell" *ngFor="let dayName of dayNames">
+    <div class="calendar-header-cell-content">
+      {{ dayName }}
+    </div>
+  </div>
+</div>
+<div class="days-sheet-wrapper">
+  <cdk-virtual-scroll-viewport #scrollable [itemSize]="itemSize" class="weeks-list">
+    <div class="calendar-row" *cdkVirtualFor="let week of dataSource; let i = index">
+      <div
+        [skyCalendarSpecialCell]="day"
+        class="calendar-cell"
+        [ngClass]="{
+          'non-active': !isActive(day),
+          'selected-special-range-start': isSelectedStart(day),
+          'selected-special-range-end': isSelectedEnd(day),
+          today: isToday(day)
+        }"
+        *ngFor="let day of week?.days">
+        <div class="calendar-cell-content" (click)="dayClick(day)">
+          {{ day.number }}
+        </div>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

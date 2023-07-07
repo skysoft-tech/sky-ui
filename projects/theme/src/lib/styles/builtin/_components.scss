@@ -1,11 +1,13 @@
-@use "projects/breadcrumb/src/lib/breadcrumb.theme" as breadcrumb;
-@use "projects/button/src/lib/button.theme" as button;
+@use 'projects/breadcrumb/src/lib/breadcrumb.theme' as breadcrumb;
+@use 'projects/button/src/lib/button.theme' as button;
+@use 'projects/calendar/src/lib/calendar.theme' as calendar;
 
-@use "./typography" as typography;
+@use './typography' as typography;
 
 @mixin all-components-theme($theme) {
   @include breadcrumb.apply-theme($theme);
   @include button.apply-theme($theme);
+  @include calendar.apply-theme($theme);
 
   @include typography.apply-theme($theme);
-};
+}

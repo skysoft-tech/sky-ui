@@ -1,0 +1,101 @@
+@use 'projects/core/src/lib/theming/' as theming;
+
+$mapping: (
+  hover-cell-background: color-background-hover,
+  selected-color: color-primary,
+  selector-radius: misc-border-radius-1,
+  selected-border-width: misc-border-width-1,
+  blur-color: color-background,
+  year-background: color-background,
+  month-splitter-background: color-borders,
+  selected-color-range: color-foreground-contrast,
+);
+
+@mixin apply-theme($global-theme) {
+  $theme: theming.apply-mapping($global-theme, $mapping);
+
+  .sky-calendar {
+    .calendar-cell {
+      &.selected-special-range-start,
+      &.selected-special-range-end {
+        .calendar-cell-content {
+          background: theming.get($theme, color-selected);
+          color: theming.get($theme, selected-color-range);
+        }
+      }
+    }
+
+    .calendar-cell-content {
+      &:hover {
+        background: theming.get($theme, hover-cell-background);
+        color: theming.get($theme, color-foreground-accent);
+      }
+    }
+
+    .years {
+      .year {
+        &.selected-year {
+          color: theming.get($theme, selected-color);
+          background-color: transparent !important;
+        }
+      }
+
+      .blur {
+        $blur-color: theming.get($theme, blur-color);
+
+        background: linear-gradient(0deg, rgba($blur-color, 0.8), transparent 8rem),
+          linear-gradient(180deg, rgba($blur-color, 0.8), transparent 8rem);
+      }
+    }
+
+    .months {
+      .year-block {
+        .year {
+          span {
+            background-color: theming.get($theme, year-background);
+          }
+
+          &::after {
+            background-color: theming.get($theme, month-splitter-background);
+          }
+        }
+      }
+    }
+
+    .calendar-selected-cell {
+      .calendar-cell-content {
+        background-color: theming.get($theme, selected-color);
+      }
+    }
+
+    .today {
+      &.calendar-selected-cell {
+        .calendar-cell-content {
+          color: theming.get($theme, color-background);
+          border: theming.get($theme, selected-border-width) solid theming.get($theme, selected-color);
+        }
+      }
+      .calendar-cell-content {
+        border: theming.get($theme, selected-border-width) solid theming.get($theme, selected-color);
+        color: theming.get($theme, selected-color);
+      }
+    }
+
+    .special-range {
+      color: theming.get($theme, selected-color-range);
+
+      &.selected-special-range-start,
+      &.selected-special-range-end {
+        color: theming.get($theme, color-foreground-contrast);
+
+        &::before {
+          background: theming.get($theme, color-selected);
+        }
+
+        &:hover {
+          color: theming.get($theme, color-foreground-accent);
+        }
+      }
+    }
+  }
+}
