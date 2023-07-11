@@ -3,9 +3,9 @@
 @use 'projects/core/src/lib/theming' as theming;
 
 $mapping: (
-  text-color: color-foreground-accent,
+  text-color: color-foreground,
   link-color: color-primary,
-  title-color: color-foreground,
+  title-color: color-foreground-title,
 );
 
 @mixin apply-theme($theme-config) {

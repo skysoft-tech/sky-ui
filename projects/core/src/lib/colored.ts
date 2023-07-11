@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
-export type ColorKind = 'basic' | 'primary' | 'accent' | 'warn' | undefined;
+export type ColorKind = 'basic' | 'primary' | 'accent' | 'warning' | 'success' | undefined;
 
 const DefaultColor: ColorKind = 'basic';
 

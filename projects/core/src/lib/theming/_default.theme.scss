@@ -1,6 +1,6 @@
-@use './typography-utils' as typography;
+@use "./typography-utils" as typography;
 
-$fontfamily: 'sans-serif';
+$fontfamily: "sans-serif";
 
 $theme: (
   color: (
@@ -15,15 +15,19 @@ $theme: (
     background: #ffffff,
     background-hover: #f5f5f8,
     background-pressed: #e1e1ea,
+    background-disabled: #f5f5f8,
 
     borders: #dfe1e6,
-    disabled: #f5f5f8,
+    borders-disabled: #e6e8ee,
 
+    foreground-title: #222222,
     foreground: #393939,
     foreground-accent: #848485,
     foreground-contrast: #ffffff,
+    foreground-disabled: #949494,
 
     placeholder: #848485,
+    placeholder-disabled: #979799,
 
     warning: #fe3d57,
     warning-hover: #fe2542,
@@ -35,9 +39,6 @@ $theme: (
 
     shadow: #1b2549,
 
-    illness: #ffc5cd,
-    vacation: #d4c8f5,
-    from-home: #c3efdf,
     selected: #0075ff,
     selected-body: #66acff,
   ),
@@ -63,5 +64,3 @@ $theme: (
     border-radius-3: 4px,
   ),
 );
-
-// @debug  theming.theme-flattening($theme);

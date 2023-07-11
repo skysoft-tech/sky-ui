@@ -1,64 +1,77 @@
-@use 'sass:color';
-@use 'projects/core/src/lib/theming' as typography;
+@use "sass:color";
+@use "projects/core/src/lib/theming" as typography;
 
 $primary-color: #0075ff; // Azure Radiance
-$accent-color: #0075ff;  // Azure Radiance
+$accent-color: #0075ff; // Azure Radiance
 $success-color: #37c893; // Shamrock
-$warning-color: #FE3D57; // Radical Red
-$background: #FFFFFF;
+$warning-color: #fe3d57; // Radical Red
+$background: #ffffff;
 
 $color: (
   primary: $primary-color,
-  primary-hover: color.adjust($primary-color, $lightness: -5%),    //006ae5
-  primary-pressed: color.adjust($primary-color, $lightness: -10%), //005ecc
-
+  //006ae5
+  primary-hover: color.adjust($primary-color, $lightness: -5%),
+  //005ecc
+  primary-pressed: color.adjust($primary-color, $lightness: -10%),
   accent: $accent-color,
-  accent-hover: color.adjust($accent-color, $lightness: -5%),    //006ae5
-  accent-pressed: color.adjust($accent-color, $lightness: -10%), //005ecc
-
+  //006ae5
+  accent-hover: color.adjust($accent-color, $lightness: -5%),
+  //005ecc
+  accent-pressed: color.adjust($accent-color, $lightness: -10%),
   background: $background,
-  background-accent: #F5F5F8,
-  background-hover: #EBECF0,
-  background-pressed: #E1E1EA,
+  background-accent: #f5f5f8,
+  background-hover: #ebecf0,
+  background-pressed: #e1e1ea,
+  background-disabled: #f5f5f8,
 
-  borders: #DFE1E6,
-  disabled: #F5F5F8,
+  borders: #dfe1e6,
+  borders-disabled: #e6e8ee,
 
+  foreground-title: #222222,
   foreground: #393939,
   foreground-accent: #848485,
-  foreground-contrast: #FFFFFF,
-  foreground-blured: #848485,
-  foreground-title: #222222,
+
+  foreground-contrast: #ffffff,
+  foreground-disabled: #949494,
 
   placeholder: #848485,
+  placeholder-disabled: #979799,
 
   warning: $warning-color,
-  warning-hover: color.adjust($warning-color, $lightness: -5%),    //FE2542
-  warning-pressed: color.adjust($warning-color, $lightness: -10%), //FE0B2C
-
+  warning-hover: color.adjust($warning-color, $lightness: -5%),
+  //FE2542
+  warning-pressed: color.adjust($warning-color, $lightness: -10%),
+  //FE0B2C
   success: $success-color,
-  success-hover: color.adjust($success-color, $lightness: -5%),    //31b484
-  success-pressed: color.adjust($success-color, $lightness: -10%), //2ca076
-
-  shadow:#1b2549,
+  success-hover: color.adjust($success-color, $lightness: -5%),
+  //31b484
+  success-pressed: color.adjust($success-color, $lightness: -10%),
+  //2ca076
+  shadow: #1b2549,
 
   illness: #ffc5cd,
   vacation: #d4c8f5,
   from-home: #c3efdf,
   selected: $primary-color,
-  selected-body: color.adjust($primary-color, $lightness: +20%)
+  selected-body: color.adjust($primary-color, $lightness: +20%),
 );
 
 $text: (
   main-font: '"Museo Sans Cyrl", Roboto, "Helvetica Neue", sans-serif',
-  primary: typography.define-typography-level(36px, $font-weight: 700, $letter-spacing: 0.5px),    // title
-  headline-1: typography.define-typography-level(24px,  2.5),              // page header
-  headline-2: typography.define-typography-level(16px, $font-weight: 700), // breadcrumbs
-  headline-3: typography.define-typography-level(14px),                    // sub-header
-
-  body-1: typography.define-typography-level(14px), // main text
-  body-2: typography.define-typography-level(14px), // description
-  body-3: typography.define-typography-level(16px), // side menu
+  // title
+  primary: typography.define-typography-level(36px, $font-weight: 700, $letter-spacing: 0.5px),
+  // page header
+  headline-1: typography.define-typography-level(24px, 2.5),
+  // breadcrumbs
+  headline-2: typography.define-typography-level(16px, $font-weight: 700),
+  // sub-header
+  headline-3: typography.define-typography-level(14px),
+  // main text
+  body-1: typography.define-typography-level(14px),
+  // description
+  body-2: typography.define-typography-level(14px),
+  // side menu
+  body-3: typography.define-typography-level(16px),
 );
 
 $misc: (
@@ -66,14 +79,11 @@ $misc: (
   border-width-2: 1px,
   border-radius-1: 4px,
   border-radius-2: 8px,
-  border-radius-3: 3px
+  border-radius-3: 3px,
 );
 
 $light-theme-config: (
   color: $color,
   text: $text,
-  misc: $misc
+  misc: $misc,
 );
-
-
-

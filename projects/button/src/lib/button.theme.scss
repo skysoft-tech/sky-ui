@@ -1,11 +1,10 @@
-@use 'sass:color';
-@use 'projects/core/src/lib/theming/' as theming;
+@use "sass:color";
+@use "projects/core/src/lib/theming/" as theming;
 
-$button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
+$button-styles: ("basic", "primary", "accent", "success", "warning");
 
 @mixin apply-theme($global-theme) {
-
-  $accent-color: theming.get($global-theme, 'color-warning');
+  $accent-color: theming.get($global-theme, "color-warning");
 
   $accent-light: color.adjust($accent-color, $lightness: 45%); //E5F1FF
   $accent-light-hover: color.adjust($accent-color, $lightness: 40%); //CCE3FF
@@ -28,9 +27,9 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     button-basic-pressed-background-color: color-background-pressed,
     button-basic-pressed-border-color: color-background-pressed,
     button-basic-pressed-text-color: color-foreground-accent,
-    button-basic-disabled-background-color: background-disabled,
-    button-basic-disabled-border-color: background-disabled,
-    button-basic-disabled-text-color: color-foreground,
+    button-basic-disabled-background-color: color-background-disabled,
+    button-basic-disabled-border-color: color-borders-disabled,
+    button-basic-disabled-text-color: color-foreground-disabled,
 
     // primary button
     button-primary-background-color: color-accent,
@@ -42,9 +41,9 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     button-primary-pressed-background-color: color-accent-pressed,
     button-primary-pressed-border-color: color-accent-pressed,
     button-primary-pressed-text-color: color-foreground-contrast,
-    button-primary-disabled-background-color: color-disabled,
-    button-primary-disabled-border-color: color-disabled,
-    button-primary-disabled-text-color: color-foreground,
+    button-primary-disabled-background-color: color-background-disabled,
+    button-primary-disabled-border-color: color-borders-disabled,
+    button-primary-disabled-text-color: color-foreground-disabled,
 
     // accent button
     button-accent-background-color: $accent-light,
@@ -56,9 +55,9 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     button-accent-pressed-background-color: $accent-light-pressed,
     button-accent-pressed-border-color: $accent-light-pressed,
     button-accent-pressed-text-color: color-foreground-accent,
-    button-accent-disabled-background-color: color-disabled,
-    button-accent-disabled-border-color: color-disabled,
-    button-accent-disabled-text-color: color-foreground,
+    button-accent-disabled-background-color: color-background-disabled,
+    button-accent-disabled-border-color: color-borders-disabled,
+    button-accent-disabled-text-color: color-foreground-disabled,
 
     // success button
     button-success-background-color: color-success,
@@ -70,9 +69,9 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     button-success-pressed-background-color: color-success-pressed,
     button-success-pressed-border-color: color-success-pressed,
     button-success-pressed-text-color: color-foreground-contrast,
-    button-success-disabled-background-color: color-disabled,
-    button-success-disabled-border-color: color-disabled,
-    button-success-disabled-text-color: color-foreground,
+    button-success-disabled-background-color: color-background-disabled,
+    button-success-disabled-border-color: color-borders-disabled,
+    button-success-disabled-text-color: color-foreground-disabled,
 
     // warning button
     button-warning-background-color: color-warning,
@@ -84,15 +83,15 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     button-warning-pressed-background-color: color-warning-pressed,
     button-warning-pressed-border-color: color-warning-pressed,
     button-warning-pressed-text-color: color-foreground-contrast,
-    button-warning-disabled-background-color: color-disabled,
-    button-warning-disabled-border-color: color-disabled,
-    button-warning-disabled-text-color: color-foreground,
+    button-warning-disabled-background-color: color-background-disabled,
+    button-warning-disabled-border-color: color-borders-disabled,
+    button-warning-disabled-text-color: color-foreground-disabled,
   );
 
   $theme: theming.apply-mapping($global-theme, $mapping);
 
   .sky-button {
-    @include button-reset();
+    @include agent.button-reset();
 
     // Make anchors render like buttons.
     display: inline-block;
@@ -106,7 +105,7 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     padding: 0 16px;
     min-width: 64px;
     line-height: 32px;
-    border-radius: theming.get($theme, 'button-border-radius');
+    border-radius: theming.get($theme, "button-border-radius");
 
     transition: opacity 200ms cubic-bezier(0.35, 0, 0.25, 1), background-color 200ms cubic-bezier(0.35, 0, 0.25, 1);
 
@@ -144,7 +143,6 @@ $button-styles: ('basic', 'primary', 'accent', 'success', 'warning');
     }
   }
 }
-
 
 @mixin button-reset {
   -webkit-user-select: none;
