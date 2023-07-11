@@ -91,7 +91,7 @@ $button-styles: ("basic", "primary", "accent", "success", "warning");
   $theme: theming.apply-mapping($global-theme, $mapping);
 
   .sky-button {
-    @include agent.button-reset();
+    @include button-reset();
 
     // Make anchors render like buttons.
     display: inline-block;
