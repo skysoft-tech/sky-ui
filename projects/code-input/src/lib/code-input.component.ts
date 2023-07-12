@@ -94,7 +94,6 @@ export class SkyCodeInputComponent extends AbstractSkyControl<string> implements
             });
 
         this.setInputValues(this.value ?? '', 0);
-        console.log('aaa', this.value);
     }
     ngDoCheck() {
         if (this.ngControl) {
@@ -203,6 +202,10 @@ export class SkyCodeInputComponent extends AbstractSkyControl<string> implements
     }
 
     emitChanges() {
+        if (this.inputs.length === 0) {
+            return;
+        }
+
         const value = this.inputs.map(i => i.value).join('');
 
         if (value !== this.value) {
