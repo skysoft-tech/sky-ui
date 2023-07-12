@@ -1,0 +1,47 @@
+{
+  "name": "checkbox",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/checkbox/src",
+  "prefix": "sky",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "projects/checkbox/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/checkbox/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/checkbox/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "projects/checkbox/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["projects/checkbox/**/*.ts", "projects/checkbox/**/*.html"]
+      }
+    }
+  }
+}

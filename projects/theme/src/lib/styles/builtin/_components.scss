@@ -2,6 +2,7 @@
 @use 'projects/button/src/lib/button.theme' as button;
 @use 'projects/calendar/src/lib/calendar.theme' as calendar;
 @use 'projects/code-input/src/lib/code-input.theme' as code-input;
+@use 'projects/checkbox/src/lib/checkbox.theme' as checkbox;
 
 @use './typography' as typography;
 
@@ -10,6 +11,7 @@
   @include button.apply-theme($theme);
   @include calendar.apply-theme($theme);
   @include code-input.apply-theme($theme);
+  @include checkbox.apply-theme($theme);
 
   @include typography.apply-theme($theme);
 }

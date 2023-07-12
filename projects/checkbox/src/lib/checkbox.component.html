@@ -1,0 +1,32 @@
+<label class="sky-checkbox-layout">
+  <div class="sky-checkbox-inner-container">
+    <input
+      #input
+      class="sky-checkbox-input"
+      type="checkbox"
+      [checked]="checked"
+      [disabled]="disabled"
+      (change)="interactionEvent($event)"
+      (click)="inputClick($event)"
+      (focus)="focus()"
+      (blur)="blur()" />
+    <div class="sky-checkbox-frame">
+      <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="indeterminate && !checked">
+          <div class="sky-checkbox-indeterminate-line"></div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <sky-icon name="check"></sky-icon>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="sky-checkbox-label">
+    <ng-content></ng-content>
+  </div>
+</label>
+
+<div class="sky-checkbox-hint">
+  <ng-content select="[hint]"></ng-content>
+  <sky-error-description *ngIf="showErrors"></sky-error-description>
+</div>
