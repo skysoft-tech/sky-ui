@@ -5,7 +5,8 @@
     "@angular/common": "^16.1.0",
     "@angular/core": "^16.1.0",
     "@sky-ui/core": ">=0.0.1",
-    "@sky-ui/icons": ">=0.0.1"
+    "@sky-ui/icons": ">=0.0.1",
+    "@sky-ui/field-error": ">=0.0.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
