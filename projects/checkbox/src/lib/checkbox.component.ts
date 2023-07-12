@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 
 import {
-    AfterContentInit,
+    AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -42,7 +42,7 @@ import {
         '[class.sky-checkbox-indeterminate]': 'indeterminate',
     },
 })
-export class SkyCheckboxComponent extends AbstarctSkyToggle implements AfterContentInit {
+export class SkyCheckboxComponent extends AbstarctSkyToggle implements AfterViewInit {
     private _indeterminate: boolean = false;
     @Input()
     get indeterminate(): boolean {
@@ -71,7 +71,7 @@ export class SkyCheckboxComponent extends AbstarctSkyToggle implements AfterCont
         super('sky-checkbox-', changeDetectorRef, defaultErrorStateMatcher, ngControl, parentForm, parentFormGroup);
     }
 
-    ngAfterContentInit(): void {
+    ngAfterViewInit(): void {
         const name = this.ngControl?.name || this.inputId;
         this._inputNameController.checkName(name, this.control?.nativeElementRef, this.input);
     }
