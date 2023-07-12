@@ -1,0 +1,57 @@
+.sky-checkbox-layout {
+  user-select: none;
+  cursor: inherit;
+  align-items: baseline;
+  vertical-align: middle;
+  display: inline-flex;
+  white-space: nowrap;
+
+  .sky-checkbox-inner-container {
+    display: inline-block;
+    height: 1rem;
+    line-height: 0;
+    margin: auto;
+    margin-right: 8px;
+    order: 0;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1rem;
+
+    .sky-checkbox-input {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+      white-space: nowrap;
+      outline: 0;
+      bottom: 0;
+      left: 50%;
+    }
+
+    .sky-checkbox-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      box-sizing: border-box;
+      pointer-events: none;
+
+      transition: border-color 90ms cubic-bezier(0, 0, 0.2, 0.1);
+      border-style: solid;
+
+      .sky-checkbox-indeterminate-line {
+        height: 2px;
+        width: 10px;
+      }
+    }
+  }
+}

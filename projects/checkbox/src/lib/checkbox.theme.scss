@@ -1,0 +1,77 @@
+@use "projects/core/src/lib/theming" as theming;
+
+$mapping: (
+  checkbox-border-width: misc-border-width-1,
+  checkbox-border-color: color-borders,
+  checkbox-background-color: color-primary,
+
+  checkbox-icon-color: color-background,
+
+  checkbox-focused-border-color: color-primary,
+  checkbox-error-border-color: color-warning,
+
+  checkbox-disabled-background-color: color-background-disabled,
+  checkbox-disabled-border-color: color-borders-disabled,
+  checkbox-disabled-text-color: color-foreground-disabled,
+
+  checkbox-font-family: text-main-font,
+);
+
+@mixin apply-theme($theme-checkbox) {
+  $theme: theming.apply-mapping($theme-checkbox, $mapping);
+
+  .sky-checkbox-frame {
+    border-color: theming.get($theme, checkbox-border-color);
+    border-width: theming.get($theme, checkbox-border-width);
+    color: theming.get($theme, checkbox-icon-color);
+  }
+
+  .sky-checkbox-checked {
+    .sky-checkbox-frame {
+      background-color: theming.get($theme, checkbox-background-color);
+      border-color: theming.get($theme, checkbox-background-color);
+    }
+  }
+
+  .sky-checkbox-indeterminate {
+    .sky-checkbox-frame {
+      border-color: theming.get($theme, checkbox-background-color);
+
+      .sky-checkbox-indeterminate-line {
+        background-color: theming.get($theme, checkbox-background-color);
+      }
+    }
+  }
+
+  .sky-checkbox-disabled {
+    .sky-checkbox-frame {
+      background-color: theming.get($theme, checkbox-disabled-background-color);
+      border-color: theming.get($theme, checkbox-disabled-border-color);
+      color: theming.get($theme, checkbox-disabled-text-color);
+    }
+
+    .sky-checkbox-label {
+      color: theming.get($theme, checkbox-disabled-text-color);
+    }
+
+    .sky-checkbox-hint {
+      color: theming.get($theme, checkbox-disabled-text-color);
+    }
+  }
+
+  .focused {
+    .sky-checkbox-frame {
+      border-color: theming.get($theme, checkbox-focused-border-color);
+    }
+  }
+
+  .invalid {
+    .sky-checkbox-frame {
+      border-color: theming.get($theme, checkbox-error-border-color);
+    }
+
+    .sky-field-hint {
+      color: theming.get($theme, checkbox-error-border-color);
+    }
+  }
+}
