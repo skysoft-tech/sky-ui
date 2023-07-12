@@ -24,8 +24,9 @@
   <div class="sky-checkbox-label">
     <ng-content></ng-content>
   </div>
-  <div class="sky-field-hint">
-    <ng-content select="[hint]"></ng-content>
-    <sky-error-description *ngIf="showErrors"></sky-error-description>
-  </div>
 </label>
+
+<div class="sky-checkbox-hint">
+  <ng-content select="[hint]"></ng-content>
+  <sky-error-description *ngIf="showErrors"></sky-error-description>
+</div>
