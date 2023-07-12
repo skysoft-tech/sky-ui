@@ -1,0 +1,58 @@
+@use 'sass:string';
+@use 'projects/core/src/lib/theming' as theming;
+
+
+$mapping:(
+  code-input-border-width: misc-border-width-1,
+  code-input-border-radius: misc-border-radius-3,
+  code-input-border-color: color-borders,
+  code-input-background-color: color-background-hover,
+
+  code-input-focused-border-color: color-primary,
+  code-input-error-border-color: color-warning,
+  code-input-error-hint-color: color-warning,
+
+  code-input-disabled-background-color: color-background-disabled,
+  code-input-disabled-border-color: color-borders-disabled,
+  code-input-disabled-text-color: color-foreground-disabled,
+
+  code-input-font-family: text-main-font
+);
+
+@mixin apply-theme($theme-input){
+  $theme: theming.apply-mapping($theme-input, $mapping);
+
+  .sky-fieldset > input {
+    border-style: solid;
+    border-width:  theming.get($theme, code-input-border-width);
+    border-radius:  theming.get($theme, code-input-border-radius);
+    border-color: theming.get($theme, code-input-border-color);
+
+    font-family: string.unquote(theming.get($theme, code-input-font-family));
+
+    background: theming.get($theme, code-input-background-color);
+
+    &:focus {
+      border-color: theming.get($theme, code-input-focused-border-color);
+    }
+
+    &[disabled] {
+      background: theming.get($theme, code-input-disabled-background-color);
+      border-color: theming.get($theme, code-input-disabled-border-color);
+      color: theming.get($theme, code-input-disabled-text-color);
+    }
+  }
+
+  .invalid{
+    .sky-fieldset > input {
+      border-color: theming.get($theme, code-input-error-border-color);
+    }
+
+    .sky-field-hint{
+      color: theming.get($theme, code-input-error-hint-color);
+    }
+  }
+}
+
+
+

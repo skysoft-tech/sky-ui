@@ -7,7 +7,7 @@ import { filter, interval, map, Observable, pairwise } from 'rxjs';
 export class AutofillExtentionService {
     constructor(private ngZone: NgZone) {}
 
-    observeExtentionValue(elem: any) {
+    observeExtentionValue(elem: { value: string }) {
         return this.ngZone.runOutsideAngular<Observable<string>>(() => {
             return interval(200).pipe(
                 map(_ => elem.value),

@@ -1,0 +1,35 @@
+sky-code-input {
+  font-size: 1rem;
+}
+
+.sky-field-wrapper {
+  .sky-fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    input {
+      width: 2em;
+      height: 2em;
+
+      text-align: center;
+      text-transform: uppercase;
+      outline: none;
+      size: 1;
+      transition: border 0.15s ease-in-out;
+
+      margin: 0.3em;
+    }
+  }
+
+  .sky-field-hint {
+    font-size: 0.75em;
+    min-height: 1.15em;
+
+    margin-top: 4px;
+  }
+}
+
+.extension-target {
+  display: none;
+}
