@@ -1,6 +1,7 @@
 @use 'projects/breadcrumb/src/lib/breadcrumb.theme' as breadcrumb;
 @use 'projects/button/src/lib/button.theme' as button;
 @use 'projects/calendar/src/lib/calendar.theme' as calendar;
+@use 'projects/code-input/src/lib/code-input.theme' as code-input;
 
 @use './typography' as typography;
 
@@ -8,6 +9,7 @@
   @include breadcrumb.apply-theme($theme);
   @include button.apply-theme($theme);
   @include calendar.apply-theme($theme);
+  @include code-input.apply-theme($theme);
 
   @include typography.apply-theme($theme);
 }

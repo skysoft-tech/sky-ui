@@ -1,0 +1,25 @@
+<div class="sky-field-wrapper">
+  <input class="extension-target" name="otp" #extensionTarget tabindex="-1" />
+  <fieldset class="sky-fieldset">
+    <input
+      *ngFor="let placeholder of placeholders; let i = index"
+      #cell
+      [id]="i"
+      type="text"
+      maxlength="1"
+      [disabled]="disabled"
+      (keyup.arrowRight)="jumpToNextCell(i)"
+      (keyup.arrowLeft)="jumpToPreviousCell(i)"
+      (keyup.backspace)="jumpToPreviousCell(i)"
+      (keyup.delete)="jumpToNextCell(i)"
+      (input)="onInput($event, i)"
+      (focus)="onFocusChange(true)"
+      (paste)="onPaste($event, i)"
+      (blur)="onFocusChange(false)" />
+  </fieldset>
+
+  <div class="sky-field-hint">
+    <ng-content select="[hint]"></ng-content>
+    <sky-error-description *ngIf="showErrors"></sky-error-description>
+  </div>
+</div>
