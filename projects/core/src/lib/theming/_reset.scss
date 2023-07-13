@@ -1,0 +1,88 @@
+/*
+ * This file contains mixins for reseting default component styles
+ * Based on the angular material internal styles
+ */
+
+ @mixin button-reset {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // The `outline: none` from above works on all browsers, however Firefox also
+  // adds a special `focus-inner` which we have to disable explicitly. See:
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+
+@mixin input-reset {
+  // Font needs to be inherited, because by default <input> has a system font.
+  font: inherit;
+
+  // The sky input should match whatever background it is above.
+  background: transparent;
+
+  // If background matches current background then so should the color for proper contrast
+  color: currentColor;
+
+  // By default, <input> has a padding, border, outline and a default width.
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  // Prevent textareas from being resized outside the form field.
+  max-width: 100%;
+
+  // User agent stylesheets set the text-align of inputs explicitly to "start". Those can be
+  // easily overwritten by targeting the input element using a simple CSS selector, but since
+  // the text-align will be applied most of the time on the parent sky control to also align the
+  // placeholder, the alignment should be inherited here.
+  text-align: inherit;
+
+  // Undo the red box-shadow glow added by Firefox on invalid inputs.
+  // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
+  &:-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  // Clear Safari's decorations for search fields.
+  &,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+
+  // Also clear Safari's autofill icons. Note that this can't be in the
+  // same selector as the IE ones, otherwise Safari will ignore it.
+  &::-webkit-contacts-auto-fill-button,
+  &::-webkit-caps-lock-indicator,
+  // Preserve the autofill icon on password inputs since it includes some important functionality.
+  &:not([type='password'])::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+  }
+
+}
+
+@mixin textarea-reset {
+  // Only allow resizing along the Y axis.
+  resize: vertical;
+  overflow: auto;
+
+  &.cdk-textarea-autosize {
+    resize: none;
+  }
+
+  // The 2px padding prevents scrollbars from appearing on Chrome even when they aren't needed.
+  // We also add a negative margin to negate the effect of the padding on the layout.
+  padding: 2px 0;
+  margin: -2px 0;
+}
