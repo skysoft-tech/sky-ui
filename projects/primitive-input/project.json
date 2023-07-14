@@ -1,0 +1,47 @@
+{
+  "name": "primitive-input",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/primitive-input/src",
+  "prefix": "sky",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "projects/primitive-input/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/primitive-input/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/primitive-input/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "projects/primitive-input/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["projects/primitive-input/**/*.ts", "projects/primitive-input/**/*.html"]
+      }
+    }
+  }
+}
