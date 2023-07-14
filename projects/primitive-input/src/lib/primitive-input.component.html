@@ -1,0 +1,15 @@
+<div class="sky-field-wrapper">
+  <ng-content select="label"></ng-content>
+  <div class="sky-input-wrapper">
+    <ng-content select="input"></ng-content>
+    <ng-content select="textarea"></ng-content>
+    <button type="button" sky-button *ngIf="showCleaner" (click.stop)="clear()" class="cleaner">
+      <sky-icon name="cross"></sky-icon>
+    </button>
+    <ng-content></ng-content>
+  </div>
+  <div class="sky-field-hint">
+    <ng-content select="[hint]"></ng-content>
+    <ng-content select="[error]"></ng-content>
+  </div>
+</div>
