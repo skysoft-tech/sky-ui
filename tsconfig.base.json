@@ -26,6 +26,7 @@
       "@sky-ui/icons": ["projects/icons/src/index.ts"],
       "@sky-ui/loader": ["projects/loader/src/index.ts"],
       "@sky-ui/primitive-input": ["projects/primitive-input/src/index.ts"],
+      "@sky-ui/slide-toggle": ["projects/slide-toggle/src/index.ts"],
       "@sky-ui/theme": ["projects/theme/src/index.ts"]
     }
   },

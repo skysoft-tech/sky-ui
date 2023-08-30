@@ -1,0 +1,16 @@
+<label class="sky-slide-toggle-layout">
+  <input
+    #input
+    type="checkbox"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="interactionEvent($event)"
+    (click)="inputClick($event)"
+    (focus)="focus()"
+    (blur)="blur()" />
+  <span class="slider round"></span>
+  <div class="sky-field-hint">
+    <ng-content select="[hint]"></ng-content>
+    <sky-error-description *ngIf="showErrors"></sky-error-description>
+  </div>
+</label>
