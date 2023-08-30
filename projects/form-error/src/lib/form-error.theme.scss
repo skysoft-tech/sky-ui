@@ -1,0 +1,13 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  content-color: color-warning
+);
+
+@mixin apply-theme($theme-input) {
+  $theme: theming.apply-mapping($theme-input, $mapping);
+
+  .sky-form-error {
+    color: theming.get($theme, content-color);
+  }
+}

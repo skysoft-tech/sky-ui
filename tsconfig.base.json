@@ -24,6 +24,7 @@
       "@sky-ui/core": ["projects/core/src/index.ts"],
       "@sky-ui/date-adapter": ["projects/date-adapter/src/index.ts"],
       "@sky-ui/field-error": ["projects/field-error/src/index.ts"],
+      "@sky-ui/form-error": ["projects/form-error/src/index.ts"],
       "@sky-ui/icons": ["projects/icons/src/index.ts"],
       "@sky-ui/input": ["projects/input/src/index.ts"],
       "@sky-ui/loader": ["projects/loader/src/index.ts"],
