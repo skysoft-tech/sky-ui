@@ -1,0 +1,46 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  input-border-width: misc-border-width-1,
+  slide-background-color: color-background-accent,
+  circle-background-color: color-foreground-contrast,
+  primary-color: color-primary,
+  primary-color-hover: color-primary-hover,
+  border-radius: misc-border-radius-2,
+);
+
+@mixin apply-theme($theme-input) {
+  $theme: theming.apply-mapping($theme-input, $mapping);
+
+  .sky-slide-toggle-layout {
+
+    .slider {
+      background-color: theming.get($theme, slide-background-color);
+      border-radius: theming.get($theme, border-radius);
+
+      &::before {
+        background-color: theming.get($theme, circle-background-color);
+      }
+    }
+
+    input:checked + .slider {
+      background-color: theming.get($theme, primary-color);
+    }
+
+    & .round:before {
+      border-radius: 50%;
+      box-shadow: 0px 1px 0px rgba(theming.get($theme, primary-color-hover), 0.15);
+    }
+  }
+
+  .sky-slide-toggle-disabled {
+    opacity: .5;
+  }
+
+
+  .focused {
+    .slider {
+      box-shadow: 0 0 1px theming.get($theme, primary-color);
+    }
+  }
+}

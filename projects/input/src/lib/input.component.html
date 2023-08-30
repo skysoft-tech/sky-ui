@@ -1,0 +1,23 @@
+<sky-primitive-input [showCleaner]="showCleaner" (cleanerClick)="clear()">
+  <ng-container ngProjectAs="label">
+    <ng-content select="label"></ng-content>
+  </ng-container>
+
+  <ng-container ngProjectAs="input">
+    <ng-content select="input"></ng-content>
+  </ng-container>
+
+  <ng-container ngProjectAs="textarea">
+    <ng-content select="textarea"></ng-content>
+  </ng-container>
+
+  <ng-container ngProjectAs="[hint]">
+    <ng-content select="[hint]"></ng-content>
+  </ng-container>
+
+  <ng-container ngProjectAs="[error]">
+    <sky-error-description *ngIf="showErrors"></sky-error-description>
+  </ng-container>
+
+  <ng-content></ng-content>
+</sky-primitive-input>

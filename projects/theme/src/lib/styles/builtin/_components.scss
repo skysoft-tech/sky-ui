@@ -5,6 +5,8 @@
 @use "projects/checkbox/src/lib/checkbox.theme" as checkbox;
 @use "projects/primitive-input/src/lib/primitive-input.theme" as primitive-input;
 @use "projects/select/src/lib/select.theme" as select;
+@use "projects/input/src/lib/input.theme" as input;
+@use "projects/slide-toggle/src/lib/slide-toggle.theme" as slide-toggle;
 
 @use "./typography" as typography;
 
@@ -16,6 +18,8 @@
   @include checkbox.apply-theme($theme);
   @include primitive-input.apply-theme($theme);
   @include select.apply-theme($theme);
+  @include input.apply-theme($theme);
+  @include slide-toggle.apply-theme($theme);
 
   @include typography.apply-theme($theme);
 }

@@ -33,6 +33,11 @@ export class SkyPrimitiveInputComponent implements AfterContentInit {
     @ContentChild(SkyFieldDirective)
     input?: SkyFieldDirective;
 
+    set value(value: string | null) {
+        if (this.input) {
+            this.input.nativeElement.value = value ?? '';
+        }
+    }
     get value(): string | null {
         return this.input?.nativeElement.value ?? null;
     }
