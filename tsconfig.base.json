@@ -20,6 +20,7 @@
       "@sky-ui/calendar": ["projects/calendar/src/index.ts"],
       "@sky-ui/checkbox": ["projects/checkbox/src/index.ts"],
       "@sky-ui/code-input": ["projects/code-input/src/index.ts"],
+      "@sky-ui/color-picker": ["projects/color-picker/src/index.ts"],
       "@sky-ui/core": ["projects/core/src/index.ts"],
       "@sky-ui/date-adapter": ["projects/date-adapter/src/index.ts"],
       "@sky-ui/field-error": ["projects/field-error/src/index.ts"],

@@ -1,0 +1,10 @@
+<sky-color-picker-header [(activeView)]="currentView"></sky-color-picker-header>
+<div class="sky-color-picker-body">
+  <ng-container [ngSwitch]="currentView">
+    <sky-gradient-view
+      *ngSwitchCase="'gradient'"
+      [color]="value"
+      (colorChange)="colorChange($event)"></sky-gradient-view>
+    <sky-pallet-view *ngSwitchCase="'palette'" (colorChange)="colorChange($event)"></sky-pallet-view>
+  </ng-container>
+</div>

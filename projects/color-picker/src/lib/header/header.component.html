@@ -1,0 +1,6 @@
+<button sky-button (click)="setActiveView('gradient')">
+  <sky-icon name="flask" [ngClass]="{ active: activeView === 'gradient' }"></sky-icon>
+</button>
+<button sky-button (click)="setActiveView('palette')">
+  <sky-icon name="palet" [ngClass]="{ active: activeView === 'palette' }" (click)="setActiveView('palette')"></sky-icon>
+</button>

@@ -1,0 +1,7 @@
+<sky-gradient-picker [color]="colorInRgb" (colorChange)="colorChanged($event)"></sky-gradient-picker>
+
+<sky-value-picker
+  class="sky-lineral-picker alpha"
+  [value]="alpha"
+  [pickerColor]="this.color ?? 'transparent'"
+  (valueChanged)="alphaChanged($event)"></sky-value-picker>
