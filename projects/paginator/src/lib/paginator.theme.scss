@@ -1,0 +1,29 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  hover: color-background-hover,
+  selected: color-accent,
+  selected-color: color-background,
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+  .sky-paginator {
+    .arrow-btn {
+      &:hover {
+        background-color: theming.get($theme, hover);
+      }
+    }
+
+    .btn {
+      &.selected {
+        color: theming.get($theme, selected-color);
+        background-color: theming.get($theme, selected);
+      }
+    }
+
+    .disabled {
+      opacity: 0.5;
+    }
+  }
+}

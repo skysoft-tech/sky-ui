@@ -10,6 +10,7 @@
 @use "projects/color-picker/src/lib/color-picker.theme" as color-picker;
 @use "projects/color-input/src/lib/color-input.theme" as color-input;
 @use 'projects/form-error/src/lib/form-error.theme' as form-error;
+@use 'projects/paginator/src/lib/paginator.theme' as paginator;
 
 @use "./typography" as typography;
 
@@ -26,6 +27,8 @@
   @include color-picker.apply-theme($theme);
   @include color-input.apply-theme($theme);
   @include form-error.apply-theme($theme);
+  @include paginator.apply-theme($theme);
+
 
   @include typography.apply-theme($theme);
 }
