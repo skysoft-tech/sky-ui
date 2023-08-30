@@ -1,0 +1,66 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  list-options-background: color-background,
+  list-options-border: color-background-hover,
+  list-options-text-color: color-foreground-accent,
+  sky-icon-color: color-foreground-accent,
+  sky-option-active-backgroud: color-background-hover,
+  sky-option-selected-backgroud: color-background-pressed,
+  placeholder-color: color-placeholder,
+  trigger-text-size: text-body-1-font-size,
+  trigger-text-weight: text-body-1-font-weight,
+  focus-border-color: color-primary,
+  option-text-size: text-body-1-font-size,
+  option-text-weight: text-body-1-font-weight
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+
+  .sky-select {
+    .trigger {
+
+      font-size: theming.get($theme, trigger-text-size);
+      font-weight: theming.get($theme, trigger-text-weight);
+
+      &.empty{
+        color: theming.get($theme, placeholder-color);
+      }
+    }
+
+    .sky-input-wrapper {
+      input::placeholder {
+        color: theming.get($theme, placeholder-color);
+      }
+
+      &:has(.trigger:focus) {
+        border-color: theming.get($theme, focus-border-color);
+      }
+    }
+
+    .sky-select {
+      sky-icon {
+        color: theming.get($theme, sky-icon-color);
+      }
+    }
+  }
+
+  .sky-option {
+    font-size: theming.get($theme, option-text-size);
+    font-weight: theming.get($theme, option-text-weight);
+
+    &.active {
+      background: theming.get($theme, sky-option-active-backgroud);
+    }
+    &.selected {
+      background: theming.get($theme, sky-option-selected-backgroud);
+    }
+  }
+
+  .list-options {
+    background: theming.get($theme, list-options-background);
+    border: 1px solid theming.get($theme, list-options-border);
+    box-shadow: 0px 6px 8px rgba(27, 37, 73, 0.08);
+  }
+}

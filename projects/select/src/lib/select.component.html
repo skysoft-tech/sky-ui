@@ -1,0 +1,48 @@
+<sky-primitive-input
+  class="sky-select"
+  [showCleaner]="false"
+  #trigger="cdkOverlayOrigin"
+  cdkOverlayOrigin
+  (click)="toggle()">
+  <ng-container ngProjectAs="label">
+    <ng-content select="label"></ng-content>
+  </ng-container>
+
+  <div class="input">
+    <input type="text" placeholder="{{ placeholder }}" skyTextfield #search (input)="isOpen = true" />
+  </div>
+  <div class="trigger" [ngClass]="{ empty: !value }" [tabindex]="options ? -1 : 0">
+    <ng-container [ngSwitch]="true">
+      <ng-container *ngSwitchDefault>
+        {{ placeholder }}
+      </ng-container>
+      <ng-container *ngSwitchCase="!!value && !customTrigger">
+        <span>{{ triggerValue }}</span>
+      </ng-container>
+      <ng-container *ngSwitchCase="!!value && !!customTrigger">
+        <ng-content select="sky-select-trigger"></ng-content>
+      </ng-container>
+    </ng-container>
+  </div>
+  <sky-icon iconType="button" [ngClass]="{ show: isOpen }" name="caretDown" #selectToggle></sky-icon>
+
+  <ng-container ngProjectAs="[error]">
+    <sky-error-description *ngIf="showErrors"></sky-error-description>
+  </ng-container>
+</sky-primitive-input>
+
+<ng-template
+  cdkConnectedOverlay
+  (positionChange)="setTransformOrigin($event)"
+  (overlayOutsideClick)="clickOverlayOutside($event)"
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayPositions]="positions"
+  [cdkConnectedOverlayWidth]="overlayWidth">
+  <div class="sky-select-panel-wrap" [@transformPanelWrap]>
+    <div class="list-options" [@transformPanel] [style.transformOrigin]="transformOrigin">
+      <div class="no-found-msg" *ngIf="showNothingFoundMessage" (click)="disabledClick($event)">Nothing found</div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>
