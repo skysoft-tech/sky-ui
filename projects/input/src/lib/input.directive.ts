@@ -16,13 +16,4 @@ import { SkyInputComponent } from './input.component';
     },
     providers: [{ provide: AbstractInputAccessor, useExisting: SkyTextfieldDirective }],
 })
-export class SkyTextfieldDirective extends AbstractInputAccessor<SkyInputComponent> {
-    // @HostBinding('value')
-    // get value(): string | null {
-    //     return this.host.value;
-    // }
-    // @HostListener('input', ["$event.target.value"])
-    // input(inputValue: string | null){
-    //     this.host.onValueChange(inputValue)
-    // }
-}
+export class SkyTextfieldDirective extends AbstractInputAccessor<SkyInputComponent> {}
