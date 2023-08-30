@@ -1,0 +1,28 @@
+@use "projects//core/src/lib/theming/" as theming;
+
+$mapping: (
+  input-border-width: misc-border-width-1,
+  input-border-radius: misc-border-radius-3,
+  input-border-color: color-borders,
+  input-background-color: color-background-hover,
+
+  input-focused-border-color: color-primary,
+  input-error-border-color: color-warning,
+  input-error-hint-color: color-warning,
+
+  input-font-family: text-main-font,
+);
+
+@mixin apply-theme($theme-input) {
+  $theme: theming.apply-mapping($theme-input, $mapping);
+
+  .invalid {
+    .sky-input-wrapper {
+      border-color: theming.get($theme, input-error-border-color);
+    }
+
+    .sky-field-hint {
+      color: theming.get($theme, "input-error-border-color");
+    }
+  }
+}
