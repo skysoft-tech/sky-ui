@@ -1,0 +1,28 @@
+<ng-container *ngIf="!inline; else colorPicker">
+  <sky-primitive-input #trigger="cdkOverlayOrigin" cdkOverlayOrigin [showCleaner]="false">
+    <ng-container ngProjectAs="label">
+      <ng-content select="label"></ng-content>
+    </ng-container>
+
+    <input skyColorField type="text" (focus)="open()" />
+
+    <button sky-button type="button" (click)="toggle()" class="color-buton">
+      <sky-icon name="calendar"></sky-icon>
+    </button>
+  </sky-primitive-input>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayPositions]="overlayPosition"
+    (overlayOutsideClick)="clickOutsideOverlay($event)"
+    [cdkConnectedOverlayOpen]="isOverlayOpened">
+    <div class="overlay-color-picker-wrapper">
+      <ng-conatiner [ngTemplateOutlet]="colorPicker"></ng-conatiner>
+    </div>
+  </ng-template>
+</ng-container>
+
+<ng-template #colorPicker>
+  <sky-color-picker [value]="value" (valueChange)="onValueChange($event)"></sky-color-picker>
+</ng-template>
