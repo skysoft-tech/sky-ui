@@ -1,0 +1,15 @@
+.sky-pallet-view {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .color {
+    width: calc(2rem - 2px);
+    height: calc(2rem - 2px);
+    min-width: 0;
+    border-radius: 0;
+    border: 1px solid transparent;
+    margin: 0;
+    padding: 0;
+  }
+}

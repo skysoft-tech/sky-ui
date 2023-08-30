@@ -1,0 +1,30 @@
+.sky-value-picker {
+  --pickerColor: transparent;
+
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  height: 100%;
+  width: 16px;
+
+  &.sky-mode-flat {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.sky-orientation-horizontal {
+    height: 16px;
+    width: 100%;
+  }
+
+  .circle {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    border: 2px solid;
+    transform: translate(-50%, -50%);
+    background-color: var(--pickerColor);
+  }
+}

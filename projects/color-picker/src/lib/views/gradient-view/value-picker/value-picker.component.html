@@ -1,0 +1,5 @@
+<div
+  *ngIf="selectorPosition | async as position"
+  [style.left]="position.x"
+  [style.top]="position.y"
+  class="circle"></div>

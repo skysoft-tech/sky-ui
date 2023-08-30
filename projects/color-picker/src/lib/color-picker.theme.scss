@@ -1,0 +1,48 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  circle-color: color-foreground,
+  active-color: color-foreground,
+  background-color: color-background
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+
+  .sky-color-picker {
+    .sky-color-picker-header {
+      .active {
+        color: theming.get($theme, 'active-colo');
+      }
+    }
+
+    .sky-gradient-picker {
+      .circle {
+        background: conic-gradient(
+          from 90deg,
+          rgb(255, 0, 0),
+          rgb(255, 255, 0),
+          rgb(0, 255, 0),
+          rgb(0, 255, 255),
+          rgb(0, 0, 255),
+          rgb(255, 0, 255),
+          rgb(255, 0, 0)
+        );
+
+        &::before {
+          background: theming.get($theme, 'background-color');
+        }
+
+        .selector-point {
+          stroke: theming.get($theme, 'circle-color');
+        }
+      }
+    }
+
+    .alpha {
+      background: linear-gradient(to bottom, #ffffff00, var(--current-color)),
+        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAuSURBVHgBxYyxDQAwDMJIL+YT+DjtzFRliUfLcklqBCRT4eCTxbD6kdL2/LgYXqpvCbs3kBv/AAAAAElFTkSuQmCC)
+          center repeat;
+    }
+  }
+}

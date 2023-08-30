@@ -7,6 +7,7 @@
 @use "projects/select/src/lib/select.theme" as select;
 @use "projects/input/src/lib/input.theme" as input;
 @use "projects/slide-toggle/src/lib/slide-toggle.theme" as slide-toggle;
+@use "projects/color-picker/src/lib/color-picker.theme" as color-picker;
 
 @use "./typography" as typography;
 
@@ -20,6 +21,7 @@
   @include select.apply-theme($theme);
   @include input.apply-theme($theme);
   @include slide-toggle.apply-theme($theme);
+  @include color-picker.apply-theme($theme);
 
   @include typography.apply-theme($theme);
 }

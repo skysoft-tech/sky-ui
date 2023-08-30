@@ -1,0 +1,13 @@
+.sky-gradient-view {
+  display: grid;
+  grid-template-columns: 13rem 20px;
+  grid-template-rows: 13rem;
+  column-gap: 1rem;
+
+  &.sky-orientation-vertical {
+    flex-direction: column;
+    .sky-lineral-picker {
+      margin: 0.5rem 0 0 0;
+    }
+  }
+}
