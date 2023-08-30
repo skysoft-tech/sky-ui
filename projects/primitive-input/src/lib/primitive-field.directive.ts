@@ -5,7 +5,7 @@ export interface FieldAccessor {
 }
 
 @Directive({
-    selector: 'input[skyField], textarea[skyField]',
+    selector: 'input[skyPrimitiveField], textarea[skyPrimitiveField]',
 })
 export class SkyFieldDirective implements FieldAccessor {
     public get nativeElement(): HTMLInputElement {
