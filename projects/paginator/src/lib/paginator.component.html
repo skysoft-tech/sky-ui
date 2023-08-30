@@ -1,0 +1,38 @@
+<button
+  sky-button
+  type="button"
+  class="arrow-btn page-button btn"
+  (click)="selectPrevPage()"
+  [disabled]="pageIndex === 0">
+  <sky-icon name="caretLeft"></sky-icon>
+</button>
+
+<ng-container *ngFor="let item of itemsToRendering">
+  <ng-container *ngIf="item">
+    <button
+      sky-button
+      type="button"
+      *ngIf="item.type === pageRenderType.Page"
+      class="page-button btn"
+      [ngClass]="{ selected: item.value === pageIndex }"
+      (click)="selectPage(item.value)">
+      {{ item.value + 1 }}
+    </button>
+
+    <div class="dots" *ngIf="item.type === pageRenderType.Dots">
+      <span>...</span>
+      <button sky-button type="button" class="arrow-btn page-button btn" (click)="selectPage(item.value)">
+        <sky-icon [name]="item.value > pageIndex ? 'doubleCaretRight' : 'doubleCaretLeft'"></sky-icon>
+      </button>
+    </div>
+  </ng-container>
+</ng-container>
+
+<button
+  type="button"
+  sky-button
+  class="arrow-btn page-button btn"
+  (click)="selectNextPage()"
+  [disabled]="pageIndex === numberOfPages - 1">
+  <sky-icon name="caretRight"></sky-icon>
+</button>
