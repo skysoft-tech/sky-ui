@@ -1,0 +1,16 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  overlay-background: color-background,
+  overlay-border: color-background-hover,
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+
+  .overlay-color-picker-wrapper {
+    background: theming.get($theme, overlay-background);
+    border: 1px solid theming.get($theme, overlay-border);
+    box-shadow: 0px 6px 8px rgba(27, 37, 73, 0.08);
+  }
+}
