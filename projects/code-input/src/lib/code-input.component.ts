@@ -22,7 +22,6 @@ import { Subscription, takeUntil } from 'rxjs';
     styleUrls: ['./code-input.component.scss'],
     providers: [
         SkyDestroyService,
-        ErrorStateMatcher,
         {
             provide: AbstractSkyControl,
             useExisting: SkyCodeInputComponent,
