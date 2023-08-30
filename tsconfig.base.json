@@ -32,6 +32,7 @@
       "@sky-ui/paginator": ["projects/paginator/src/index.ts"],
       "@sky-ui/primitive-input": ["projects/primitive-input/src/index.ts"],
       "@sky-ui/select": ["projects/select/src/index.ts"],
+      "@sky-ui/selection": ["projects/selection/src/index.ts"],
       "@sky-ui/slide-toggle": ["projects/slide-toggle/src/index.ts"],
       "@sky-ui/theme": ["projects/theme/src/index.ts"]
     }
