@@ -34,7 +34,8 @@
       "@sky-ui/select": ["projects/select/src/index.ts"],
       "@sky-ui/selection": ["projects/selection/src/index.ts"],
       "@sky-ui/slide-toggle": ["projects/slide-toggle/src/index.ts"],
-      "@sky-ui/theme": ["projects/theme/src/index.ts"]
+      "@sky-ui/theme": ["projects/theme/src/index.ts"],
+      "@sky-ui/toast": ["projects/toast/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

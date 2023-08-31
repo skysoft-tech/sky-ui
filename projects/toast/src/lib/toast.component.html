@@ -1,0 +1,13 @@
+<ng-container *ngFor="let toast of toasts">
+  <div
+    class="test"
+    [ngClass]="toast.data.configuration?.panelClass"
+    [@skyFadeIn]="toast.state"
+    [@skySlideInRight]="toast.state"
+    [@skyHeightCollapse]="toast.state"
+    (@skyFadeIn.done)="fadeInDone($event, toast.data)"
+    (mouseover)="overToast(toast.data)"
+    (mouseout)="outToast(toast.data)">
+    <ng-template [cdkPortalOutlet]="toast.data.portal"></ng-template>
+  </div>
+</ng-container>
