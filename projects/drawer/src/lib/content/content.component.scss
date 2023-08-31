@@ -1,0 +1,10 @@
+.sky-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-property: transform,margin-left,margin-right;
+}

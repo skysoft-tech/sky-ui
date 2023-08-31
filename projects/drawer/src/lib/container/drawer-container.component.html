@@ -1,0 +1,8 @@
+<div class="sky-drawer-backdrop" *ngIf="drawer?.showBackdrop" (click)="backdropClick($event)"></div>
+
+<ng-content select="sky-drawer"></ng-content>
+
+<ng-content select="sky-drawer-content"></ng-content>
+<sky-drawer-content *ngIf="!content">
+  <ng-content></ng-content>
+</sky-drawer-content>

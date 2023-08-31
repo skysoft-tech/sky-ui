@@ -1,0 +1,18 @@
+.sky-drawer {
+  position: absolute;
+  z-index: 10;
+
+  &[side='right'] {
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  &[side='left'] {
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.sky-drawer-inner-container{
+  height: 100%;
+}
