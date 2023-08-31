@@ -1,18 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Pagination, skyClamp } from '@sky-ui/core';
-import { Observable } from 'rxjs';
-
-export interface PaginationConfig {
-    pageSize: number;
-    totalCount: number;
-    currentPage: number;
-}
-
-export interface IPagination {
-    getPaginationConfig(): Observable<PaginationConfig>;
-    setPagination(pagination: Pagination): Observable<void>;
-}
+import { IPagination, Pagination, skyClamp } from '@sky-ui/core';
 
 export enum PageRenderType {
     None = 0,

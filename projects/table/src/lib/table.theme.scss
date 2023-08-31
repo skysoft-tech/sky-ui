@@ -1,0 +1,52 @@
+@use "mixins" as *;
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  table-header-background: color-background-accent,
+  table-header-text-color: color-foreground-accent,
+  table-text-size: text-body-1-font-size,
+  table-text-weight: text-body-1-font-weight,
+  table-row-separator-color: color-borders,
+  table-row-separator-width: misc-border-width-1,
+  table-row-selected-color: color-selected-body,
+  table-row-hover-color: color-background-accent
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+
+  $separator-style: solid;
+  $separator-width: theming.get($theme, table-row-separator-width);
+  $separator-color: theming.get($theme, table-row-separator-color);
+
+  table.sky-table {
+    tr {
+      &.sky-row {
+        &.selected {
+          background-color: rgba(theming.get($theme, table-row-selected-color), .2);
+        }
+
+        &:hover {
+          background-color: theming.get($theme, table-row-hover-color);
+        }
+      }
+
+      th {
+        &.sky-header-cell {
+          @include add-row-separator($separator-width, $separator-style, $separator-color);
+          background: theming.get($theme, table-header-background);
+          color: theming.get($theme, table-header-text-color);
+          font-size: theming.get($theme, table-text-size);
+          font-weight: theming.get($theme, table-text-weight);
+        }
+      }
+
+      td {
+        &.sky-cell {
+          @include add-row-separator($separator-width, $separator-style, $separator-color);
+          font-size: theming.get($theme, table-text-size);
+        }
+      }
+    }
+  }
+}

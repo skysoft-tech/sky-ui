@@ -1,0 +1,16 @@
+@mixin add-paddings-to-first-and-last($padding) {
+  &:first-of-type {
+    padding-left: $padding;
+  }
+
+  &:last-of-type {
+    padding-right: $padding;
+  }
+}
+
+@mixin add-row-separator($width, $style, $color) {
+  border-bottom-width: $width;
+  border-bottom-style: $style;
+  border-bottom-color: $color;
+}
+

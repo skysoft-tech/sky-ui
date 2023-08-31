@@ -12,12 +12,26 @@ export interface PaginationConfig extends Pagination {
     totalCount: number;
 }
 
+export interface IPagination {
+    getPaginationConfig(): Observable<PaginationConfig>;
+    setPagination(pagination: Pagination): Observable<void>;
+}
+
 export interface SortConfig {
     active: string;
     direction: SortDirection;
 }
 
 export type Sort = SortConfig;
+
+export interface ISort {
+    getSortConfig(): Observable<SortConfig>;
+    setSort(sort: Sort): Observable<void>;
+}
+
+export interface ISearch {
+    setSearch(inputValue: string | null): Observable<void>;
+}
 
 export declare interface ISkyDataProvider<T> {
     getDataStream(): Observable<readonly T[]>;
