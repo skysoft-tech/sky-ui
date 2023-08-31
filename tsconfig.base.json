@@ -24,6 +24,7 @@
       "@sky-ui/color-picker": ["projects/color-picker/src/index.ts"],
       "@sky-ui/core": ["projects/core/src/index.ts"],
       "@sky-ui/date-adapter": ["projects/date-adapter/src/index.ts"],
+      "@sky-ui/dialog": ["projects/dialog/src/index.ts"],
       "@sky-ui/drawer": ["projects/drawer/src/index.ts"],
       "@sky-ui/field-error": ["projects/field-error/src/index.ts"],
       "@sky-ui/form-error": ["projects/form-error/src/index.ts"],
