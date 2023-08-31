@@ -12,6 +12,7 @@
 @use "projects/color-input/src/lib/color-input.theme" as color-input;
 @use 'projects/form-error/src/lib/form-error.theme' as form-error;
 @use 'projects/paginator/src/lib/paginator.theme' as paginator;
+@use 'projects/sort/src/lib/sort-header.theme' as sort;
 @use 'projects/toast/src/lib/toast.theme' as toast;
 @use 'projects/table/src/lib/table.theme' as table;
 
@@ -32,6 +33,7 @@
   @include color-input.apply-theme($theme);
   @include form-error.apply-theme($theme);
   @include paginator.apply-theme($theme);
+  @include sort.apply-theme($theme);
   @include toast.apply-theme($theme);
   @include table.apply-theme($theme);
 

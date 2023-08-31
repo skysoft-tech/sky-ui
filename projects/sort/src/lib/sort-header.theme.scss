@@ -1,0 +1,21 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  hover-background-color: color-background-pressed,
+  hover-color: color-foreground
+);
+
+@mixin apply-theme($theme-select) {
+  $theme: theming.apply-mapping($theme-select, $mapping);
+  table.sky-table {
+    tr {
+      th {
+        &.sky-header-cell:focus-visible {
+          outline: none;
+          background-color: theming.get($theme, hover-background-color);
+          color: theming.get($theme, hover-color);
+        }
+      }
+    }
+  }
+}
