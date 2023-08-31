@@ -1,0 +1,44 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  background-color: color-background,
+  success-color: color-success,
+  warn-color: color-illness,
+  error-color: color-warning,
+  title-size: text-headline-1-font-size,
+  border-width: misc-border-width-1,
+  border-color: color-borders
+);
+
+@mixin apply-theme($theme-toast) {
+  $theme: theming.apply-mapping($theme-toast, $mapping);
+
+  .sky-notification {
+    &.sky-info-notificatio {
+      .sky-notification-message {
+        background-color: theming.get($theme, background-color);
+        border: theming.get($theme, border-width) solid theming.get($theme, border-color);
+      }
+    }
+
+    &.sky-success-notification {
+      .sky-notification-message {
+        background-color: theming.get($theme, success-color);
+        color: theming.get($theme, background-color);
+      }
+    }
+
+    &.sky-error-notification {
+      .sky-notification-message {
+        background-color: theming.get($theme, error-color);
+        color: theming.get($theme, background-color);
+      }
+    }
+
+    .sky-notification-message {
+      .title {
+        font-size: theming.get($theme, title-size);
+      }
+    }
+  }
+}

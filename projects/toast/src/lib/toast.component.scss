@@ -1,0 +1,46 @@
+.sky-toast {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  z-index: 1000;
+
+  &.sky-toast-top {
+    top: 1.25rem;
+  }
+
+  &.sky-toast-bottom {
+    bottom: 1.25rem;
+  }
+
+  &.sky-toast-top,
+  &.sky-toast-bottom {
+    &.sky-toast-center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.sky-toast-right {
+    right: 1.25rem;
+  }
+
+  &.sky-toast-left {
+    left: 1.25rem;
+  }
+
+  &.sky-toast-right,
+  &.sky-toast-left {
+    &.sky-toast-center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.sky-toast-center {
+    left: 50%;
+    top: 50%;
+    min-width: 20vw;
+    transform: translate(-50%, -50%);
+  }
+}
