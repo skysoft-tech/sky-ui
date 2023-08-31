@@ -1,0 +1,8 @@
+<div class="sky-sort-header-container">
+  <div class="sky-sort-header-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="sky-sort-header-arrow" [class.hidden]="!isSorted" [attr.sort-direction]="sortDirection">
+    <sky-icon name="sort"></sky-icon>
+  </div>
+</div>

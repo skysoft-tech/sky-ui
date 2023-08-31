@@ -1,0 +1,60 @@
+table.sky-table {
+  tr {
+    th {
+      &.sky-header-cell {
+        cursor: pointer;
+
+        &:focus-visible, &:hover {
+          .sky-sort-header-container {
+            .sky-sort-header-arrow {
+              &.hidden {
+                visibility: visible;
+              }
+            }
+          }
+        }
+
+        .sky-sort-header-container {
+          display: flex;
+          align-items: center;
+
+          .sky-sort-header-arrow {
+            margin-left: 1rem;
+
+            &.hidden {
+              visibility: hidden;
+            }
+
+            svg {
+              width: 20px;
+              height: 20px;
+              path {
+                opacity: 0.5;
+              }
+            }
+
+            &[sort-direction="asc"] {
+              svg {
+                path {
+                  &.asc {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+
+            &[sort-direction="desc"] {
+              svg {
+                path {
+                  &.desc {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
