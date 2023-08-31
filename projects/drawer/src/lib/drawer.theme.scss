@@ -1,0 +1,14 @@
+@use "projects/core/src/lib/theming/" as theming;
+
+$mapping: (
+  blur-background: color-foreground-title,
+);
+
+@mixin apply-theme($theme-drawer) {
+
+  $theme: theming.apply-mapping($theme-drawer, $mapping);
+
+  .sky-drawer-backdrop{
+    background-color: rgba( theming.get($theme,blur-background), 0.3);
+  }
+}

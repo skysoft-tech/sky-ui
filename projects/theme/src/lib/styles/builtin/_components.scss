@@ -3,6 +3,7 @@
 @use "projects/calendar/src/lib/calendar.theme" as calendar;
 @use "projects/code-input/src/lib/code-input.theme" as code-input;
 @use "projects/checkbox/src/lib/checkbox.theme" as checkbox;
+@use "projects/drawer/src/lib/drawer.theme" as drawer;
 @use "projects/primitive-input/src/lib/primitive-input.theme" as primitive-input;
 @use "projects/select/src/lib/select.theme" as select;
 @use "projects/input/src/lib/input.theme" as input;
@@ -22,6 +23,7 @@
   @include calendar.apply-theme($theme);
   @include code-input.apply-theme($theme);
   @include checkbox.apply-theme($theme);
+  @include drawer.apply-theme($theme);
   @include primitive-input.apply-theme($theme);
   @include select.apply-theme($theme);
   @include input.apply-theme($theme);

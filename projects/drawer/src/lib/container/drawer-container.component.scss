@@ -1,0 +1,19 @@
+.sky-drawer-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+
+  .sky-drawer-backdrop{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    backdrop-filter: blur(1px);
+  }
+
+}

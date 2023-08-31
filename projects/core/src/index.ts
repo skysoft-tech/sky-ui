@@ -21,6 +21,7 @@ export { AbstractSkyControl } from './lib/control';
 export { AbstractSkyDataItem } from './lib/data-item';
 export { BaseDisabled, CanDisable } from './lib/disabled';
 export { AbstractInputAccessor } from './lib/input-accessor';
+export { ModalHostContainer } from './lib/modal-host-container';
 export { StringTokenizer } from './lib/string-tokenizer.service';
 export { SkyInputNameController } from './lib/input-name.service';
 export { SkyMouseTracker, SkyPosition } from './lib/mnouse-tracker';

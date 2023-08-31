@@ -1,0 +1,47 @@
+{
+  "name": "drawer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/drawer/src",
+  "prefix": "sky",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "projects/drawer/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/drawer/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/drawer/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "projects/drawer/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["projects/drawer/**/*.ts", "projects/drawer/**/*.html"]
+      }
+    }
+  }
+}
