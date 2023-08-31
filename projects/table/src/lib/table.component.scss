@@ -1,0 +1,40 @@
+@use 'mixins' as *;
+
+$row-height: 4rem;
+$header-row-height: 2rem;
+$row-horizontal-padding: 1rem;
+
+table.sky-table {
+  border-spacing: 0;
+
+  tr {
+
+    &.sky-header-row {
+      height: $header-row-height;
+
+      th {
+        &.sky-header-cell {
+          padding-left: $row-horizontal-padding;
+          
+          @include add-paddings-to-first-and-last($row-horizontal-padding);
+          text-align: left;
+
+        }
+      }
+    }
+
+    &.sky-row {
+      height: $row-height;
+      user-select: none;
+
+      td {
+        &.sky-cell {
+          padding-left: $row-horizontal-padding;
+
+          @include add-paddings-to-first-and-last($row-horizontal-padding);
+          text-align: left;
+        }
+      }
+    }
+  }
+}

@@ -3,9 +3,12 @@ export * from './lib/errors';
 
 export {
     Sort,
+    ISort,
+    ISearch,
     Pagination,
     SortConfig,
     FilterValue,
+    IPagination,
     SortDirection,
     ISkyDataProvider,
     PaginationConfig,
