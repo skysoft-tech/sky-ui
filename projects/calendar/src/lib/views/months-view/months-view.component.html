@@ -20,6 +20,7 @@
         *ngFor="let day of week?.days">
         <div class="calendar-cell-content" (click)="dayClick(day)">
           {{ day.number }}
+          <div class="dots" [ngStyle]="{ backgroundColor: color }" *ngIf="getDotColor(day) as color"></div>
         </div>
       </div>
     </div>

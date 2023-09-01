@@ -10,11 +10,12 @@
 @use "projects/slide-toggle/src/lib/slide-toggle.theme" as slide-toggle;
 @use "projects/color-picker/src/lib/color-picker.theme" as color-picker;
 @use "projects/color-input/src/lib/color-input.theme" as color-input;
-@use 'projects/form-error/src/lib/form-error.theme' as form-error;
-@use 'projects/paginator/src/lib/paginator.theme' as paginator;
-@use 'projects/sort/src/lib/sort-header.theme' as sort;
-@use 'projects/toast/src/lib/toast.theme' as toast;
-@use 'projects/table/src/lib/table.theme' as table;
+@use "projects/form-error/src/lib/form-error.theme" as form-error;
+@use "projects/paginator/src/lib/paginator.theme" as paginator;
+@use "projects/sort/src/lib/sort-header.theme" as sort;
+@use "projects/toast/src/lib/toast.theme" as toast;
+@use "projects/table/src/lib/table.theme" as table;
+@use "projects/date-input/src/lib/date-input.theme" as date-input;
 
 @use "./typography" as typography;
 
@@ -36,7 +37,7 @@
   @include sort.apply-theme($theme);
   @include toast.apply-theme($theme);
   @include table.apply-theme($theme);
-
+  @include date-input.apply-theme($theme);
 
   @include typography.apply-theme($theme);
 }

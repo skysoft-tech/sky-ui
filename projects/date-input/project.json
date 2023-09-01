@@ -1,0 +1,47 @@
+{
+  "name": "date-input",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/date-input/src",
+  "prefix": "sky",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "projects/date-input/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/date-input/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/date-input/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "projects/date-input/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["projects/date-input/**/*.ts", "projects/date-input/**/*.html"]
+      }
+    }
+  }
+}

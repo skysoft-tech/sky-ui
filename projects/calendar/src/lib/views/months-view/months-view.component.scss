@@ -27,6 +27,16 @@
       justify-content: center;
       border-radius: 999px;
       z-index: 2;
+      position: relative;
+
+      .dots{
+        position: absolute;
+        display: inline-block;
+        bottom: 0.5rem;
+        width: 0.25rem;
+        height: 0.25rem;
+        border-radius: 50%;
+      }
     }
 
     .calendar-header-cell-content {
