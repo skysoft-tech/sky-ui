@@ -11,7 +11,7 @@ import {
     OnInit,
 } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
-import { SkyCalendarComponent } from '../../calendar.component';
+import { SkyCalendarComponent, SkyDayMarker } from '../../calendar.component';
 import { DateRange } from '../../models/date-range.model';
 import { SkyDay } from '../../models/day.view-model';
 import { SkyDayOfWeek } from '../../models/days-of-week.enum';
@@ -20,7 +20,7 @@ import { CalendarViewRangeService } from '../../services/calendar-view-range.ser
 import { RangeValidator } from '../../services/range-validator';
 import { CALENDAR_ROWS_COUNT, SheetService } from '../../services/sheet.service';
 import { DateDataSource } from './date-data-source';
-import { SkyDestroyService } from '@sky-ui/core';
+import { Hex, SkyDestroyService } from '@sky-ui/core';
 import { SkyDateAdapter } from '@sky-ui/date-adapter';
 
 const WEEK_ELEMENT_HEIGHT = 48;
@@ -48,6 +48,9 @@ export class SkyMonthsViewComponent implements OnInit, AfterViewInit {
 
     @Input()
     specialDates: readonly SpecialDateInput<Date>[] | null = null;
+
+    @Input()
+    markers: SkyDayMarker[] | null = null;
 
     public specialRanges: Map<string, PeriodWithType<Date>[]> = new Map();
 
@@ -143,6 +146,10 @@ export class SkyMonthsViewComponent implements OnInit, AfterViewInit {
 
     public isToday(day: SkyDay): boolean {
         return this.dateAdapter.sameDate(this.today, day.date);
+    }
+
+    public getDotColor(day: SkyDay): Hex | undefined {
+        return this.markers?.find(marker => this.dateAdapter.sameDate(marker.date, day.date))?.color;
     }
 
     public isSelectedStart(day: SkyDay): boolean {

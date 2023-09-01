@@ -11,7 +11,8 @@
     [isRange]="isRange"
     [selected]="selected"
     [today]="currentDate"
-    [specialDates]="specialDatesDataStream | async">
+    [specialDates]="specialDatesDataStream | async"
+    [markers]="markers">
   </sky-months-view>
   <sky-years-view *ngSwitchCase="'years'"> </sky-years-view>
 </div>

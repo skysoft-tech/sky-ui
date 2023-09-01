@@ -19,7 +19,7 @@ import { SkyDayOfWeek } from './models/days-of-week.enum';
 import { SpecialDateInput } from './models/special-dates.model';
 import { SheetService } from './services/sheet.service';
 import { viewTransitionAnimation } from './calendar.animations';
-import { SkyDestroyService } from '@sky-ui/core';
+import { Hex, SkyDestroyService } from '@sky-ui/core';
 import { SkyDateAdapter } from '@sky-ui/date-adapter';
 
 /**
@@ -43,6 +43,11 @@ export type SkyCalendarSpecialDatesInput<T> =
     | Observable<SpecialDateInput<T>[]>
     | null;
 
+export interface SkyDayMarker {
+    date: Date;
+    color: Hex;
+}
+
 @Component({
     selector: 'sky-calendar',
     templateUrl: './calendar.component.html',
@@ -63,6 +68,13 @@ export class SkyCalendarComponent implements OnInit, AfterContentInit, OnChanges
         return this.selected instanceof DateRange;
     }
 
+    public get view(): SkyCalendarView {
+        if (this.monthViewOnly) {
+            return 'years';
+        }
+        return this.startView;
+    }
+
     public stateChanges = new Subject<void>();
 
     @Input()
@@ -73,7 +85,13 @@ export class SkyCalendarComponent implements OnInit, AfterContentInit, OnChanges
     startView: SkyCalendarView = 'months';
 
     @Input()
+    monthViewOnly!: boolean;
+
+    @Input()
     selected: SkyCalendarInput<Date> | null = null;
+
+    @Input()
+    markers: SkyDayMarker[] | null = null;
 
     @Input()
     specialDates: SkyCalendarSpecialDatesInput<Date> = null;
@@ -106,7 +124,7 @@ export class SkyCalendarComponent implements OnInit, AfterContentInit, OnChanges
     }
 
     ngAfterContentInit() {
-        this.currentView = this.startView;
+        this.currentView = this.view;
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -130,6 +148,14 @@ export class SkyCalendarComponent implements OnInit, AfterContentInit, OnChanges
         this.selectDate.emit(day.date);
     }
 
+    monthChanged(): void {
+        if (this.monthViewOnly) {
+            this.selectDate.emit(this.viewDate);
+        } else {
+            this.openMonthView();
+        }
+    }
+
     update() {
         this.stateChanges.next();
     }
@@ -148,10 +174,14 @@ export class SkyCalendarComponent implements OnInit, AfterContentInit, OnChanges
     }
 
     toggle(): void {
-        if (this.currentView === 'months') {
-            this.currentView = 'years';
-        } else {
+        if (this.monthViewOnly) {
+            return;
+        }
+
+        if (this.currentView === 'years') {
             this.currentView = 'months';
+        } else {
+            this.currentView = 'years';
         }
     }
 

@@ -1,5 +1,5 @@
 {
-  "name": "@sky-ui/color-input",
+  "name": "@sky-ui/date-input",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^16.1.0",
@@ -9,7 +9,8 @@
     "@sky-ui/icons": "=>0.0.1",
     "@sky-ui/button": "=>0.0.1",
     "@sky-ui/primitive-input": "=>0.0.1",
-    "@sky-ui/color-picker": "=>0.0.1",
+    "@sky-ui/calendar": "=>0.0.1",
+    "@sky-ui/date-adapter": "=>0.0.1",
     "angular-imask": "^7.1.3"
   },
   "dependencies": {

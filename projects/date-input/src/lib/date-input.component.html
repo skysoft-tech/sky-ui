@@ -1,0 +1,35 @@
+<ng-container *ngIf="!inline; else calendar">
+  <sky-primitive-input #trigger="cdkOverlayOrigin" cdkOverlayOrigin [showCleaner]="false">
+    <ng-container ngProjectAs="label">
+      <ng-content select="label"></ng-content>
+    </ng-container>
+
+    <input skyDateField type="text" (focus)="open()" />
+
+    <button sky-button type="button" (click)="toggle()" class="calendar-buton">
+      <sky-icon name="calendar"></sky-icon>
+    </button>
+  </sky-primitive-input>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayPositions]="overlayPosition"
+    (overlayOutsideClick)="clickOutsideOverlay($event)"
+    [cdkConnectedOverlayOpen]="isOverlayOpened"
+    [cdkConnectedOverlayWidth]="overlayWidth">
+    <div class="overlay-calendar-wrapper">
+      <ng-conatiner [ngTemplateOutlet]="calendar"></ng-conatiner>
+    </div>
+  </ng-template>
+</ng-container>
+
+<ng-template #calendar>
+  <sky-calendar
+    [selected]="value"
+    [specialDates]="specialDates"
+    (selectDate)="onValueChange($event)"
+    [size]="size"
+    [monthViewOnly]="monthViewOnly"
+    [markers]="markers"></sky-calendar>
+</ng-template>
