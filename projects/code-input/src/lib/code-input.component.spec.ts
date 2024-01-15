@@ -1,10 +1,9 @@
-import { DebugElement, ElementRef } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
-import { SkyFieldErrorDescriptionModule } from '../errors/field-error-description.module';
-import { SkyInputModule } from '../input/input.module';
-import { AutofillExtentionService } from '../tools/autofill-extention.service';
+import { SkyFieldErrorDescriptionModule } from '@sky-ui/field-error';
+import { AutofillExtentionService } from '@sky-ui/core';
 
 import { SkyCodeInputComponent } from './code-input.component';
 
@@ -35,9 +34,9 @@ describe('SkyCodeInputComponent', () => {
     });
 
     it('next cell should get focus after input on previous cell', () => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(secondCell.nativeElement, 'focus');
 
         firstCell.triggerEventHandler(
@@ -51,9 +50,9 @@ describe('SkyCodeInputComponent', () => {
     });
 
     it('next cell shouldn`t get focus after invalid input in previous cell', () => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(secondCell.nativeElement, 'focus');
 
         firstCell.triggerEventHandler(
@@ -67,9 +66,9 @@ describe('SkyCodeInputComponent', () => {
     });
 
     it('push on right arrow should set focus on next cell', () => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(secondCell.nativeElement, 'focus');
 
         firstCell.triggerEventHandler('keyup.arrowRight', {
@@ -84,9 +83,9 @@ describe('SkyCodeInputComponent', () => {
     });
 
     it('push on left arrow should set focus on previous cell', () => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(firstCell.nativeElement, 'focus');
 
         secondCell.triggerEventHandler('keyup.arrowLeft', {
@@ -100,10 +99,10 @@ describe('SkyCodeInputComponent', () => {
         expect(focusSpy).toHaveBeenCalled();
     });
 
-    it('press on backspace should delete the value in the current cell and set focus on previous cell', fakeAsync(() => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+    it('press on backspace should deconste the value in the current cell and set focus on previous cell', fakeAsync(() => {
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(firstCell.nativeElement, 'focus');
 
         secondCell.nativeElement.value = '7';
@@ -111,17 +110,17 @@ describe('SkyCodeInputComponent', () => {
 
         fixture.detectChanges();
         tick();
-        let event = new KeyboardEvent('keyup', { key: 'Backspace', bubbles: true, cancelable: false });
+        const event = new KeyboardEvent('keyup', { key: 'Backspace', bubbles: true, cancelable: false });
         secondCell.nativeElement.dispatchEvent(event);
         fixture.detectChanges();
         expect(focusSpy).toHaveBeenCalled();
         expect(secondCell.nativeElement.value).toEqual('');
     }));
 
-    it('press on delete should set focus on next cell and delete value in current cell', fakeAsync(() => {
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
-        let secondCell = inputs[1];
+    it('press on deconste should set focus on next cell and deconste value in current cell', fakeAsync(() => {
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
+        const secondCell = inputs[1];
         const focusSpy = spyOn(secondCell.nativeElement, 'focus');
         firstCell.nativeElement.focus();
         firstCell.nativeElement.value = '7';
@@ -129,7 +128,7 @@ describe('SkyCodeInputComponent', () => {
 
         fixture.detectChanges();
         tick();
-        let event = new KeyboardEvent('keyup', { key: 'Delete', bubbles: true, cancelable: false });
+        const event = new KeyboardEvent('keyup', { key: 'Deconste', bubbles: true, cancelable: false });
         firstCell.nativeElement.dispatchEvent(event);
         fixture.detectChanges();
         expect(focusSpy).toHaveBeenCalled();
@@ -139,11 +138,11 @@ describe('SkyCodeInputComponent', () => {
     it('paste should add all numbers to cell', fakeAsync(() => {
         const clipboardData = new DataTransfer();
         clipboardData.setData('text', '124578');
-        let pasteEvent = new ClipboardEvent('paste', { clipboardData });
+        const pasteEvent = new ClipboardEvent('paste', { clipboardData });
 
         fixture.detectChanges();
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
         firstCell.nativeElement.focus();
         firstCell.nativeElement.dispatchEvent(pasteEvent);
         fixture.detectChanges();
@@ -155,11 +154,11 @@ describe('SkyCodeInputComponent', () => {
     it('after pasting each input contains exactly one character', fakeAsync(() => {
         const clipboardData = new DataTransfer();
         clipboardData.setData('text', '124578');
-        let pasteEvent = new ClipboardEvent('paste', { clipboardData });
+        const pasteEvent = new ClipboardEvent('paste', { clipboardData });
 
         fixture.detectChanges();
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
         firstCell.nativeElement.focus();
         firstCell.nativeElement.dispatchEvent(pasteEvent);
         fixture.detectChanges();
@@ -176,11 +175,11 @@ describe('SkyCodeInputComponent', () => {
     it('after pasting less than six characters another cells should be empty', fakeAsync(() => {
         const clipboardData = new DataTransfer();
         clipboardData.setData('text', '12');
-        let pasteEvent = new ClipboardEvent('paste', { clipboardData });
+        const pasteEvent = new ClipboardEvent('paste', { clipboardData });
 
         fixture.detectChanges();
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
         firstCell.nativeElement.focus();
         firstCell.nativeElement.dispatchEvent(pasteEvent);
         fixture.detectChanges();
@@ -197,11 +196,11 @@ describe('SkyCodeInputComponent', () => {
     it('after pasting more than six characters it takes first six numbers', fakeAsync(() => {
         const clipboardData = new DataTransfer();
         clipboardData.setData('text', '1278904455');
-        let pasteEvent = new ClipboardEvent('paste', { clipboardData });
+        const pasteEvent = new ClipboardEvent('paste', { clipboardData });
 
         fixture.detectChanges();
-        let inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
-        let firstCell = inputs[0];
+        const inputs: DebugElement[] = fixture.debugElement.queryAll(By.css('.sky-fieldset > input'));
+        const firstCell = inputs[0];
         firstCell.nativeElement.focus();
         firstCell.nativeElement.dispatchEvent(pasteEvent);
         fixture.detectChanges();
