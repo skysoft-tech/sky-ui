@@ -21,6 +21,14 @@ $mapping: (
   $theme: theming.apply-mapping($theme-input, $mapping);
 
   .sky-primitive-input {
+    input {
+      @include theming.input-reset();
+    }
+
+    textarea {
+      @include theming.textarea-reset();
+    }
+
     .sky-field-wrapper {
       &:has(.sky-input-wrapper input[disabled]) {
         color: theming.get($theme, input-color-text-disabled);

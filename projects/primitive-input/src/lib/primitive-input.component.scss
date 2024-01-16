@@ -1,18 +1,16 @@
-@use 'projects/core/src/lib/theming' as theming;
-
-sky-input{
+sky-input {
   font-size: 1rem;
 }
 
-.sky-field-wrapper{
-  label{
+.sky-field-wrapper {
+  label {
     display: inline-block;
     margin-bottom: 7px;
     font-size: 0.875em;
     line-height: 0.875em;
   }
 
-  .sky-input-wrapper{
+  .sky-input-wrapper {
     display: flex;
     align-items: center;
     padding-left: 0.5em;
@@ -32,17 +30,14 @@ sky-input{
       min-height: inherit;
     }
 
-    .input-btn{
+    .input-btn {
       background: transparent;
       border: none;
       cursor: pointer;
     }
 
-    input, textarea{
-      @include theming.input-reset();
-
-
-
+    input,
+    textarea {
       font-size: 0.875em;
       width: 100%;
       height: 100%;
@@ -60,7 +55,7 @@ sky-input{
     }
   }
 
-  .sky-field-hint{
+  .sky-field-hint {
     font-size: 0.75em;
     min-height: 1.15em;
 
