@@ -3,6 +3,11 @@
   "dest": "../../dist/projects/form-error",
   "lib": {
     "entryFile": "src/index.ts",
-    "styleIncludePaths": ["../../../"]
-  }
+    "styleIncludePaths": [
+      "../../../"
+    ]
+  },
+  "allowedNonPeerDependencies": [
+    "@sky-ui/field-error"
+  ]
 }

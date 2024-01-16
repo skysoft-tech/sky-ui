@@ -4,7 +4,9 @@
   "peerDependencies": {
     "@angular/core": "^17.0.9",
     "@angular/cdk": "^17.0.5",
-    "rxjs": "~7.8.0",
+    "rxjs": "~7.8.0"
+  },
+  "dependencies": {
     "@sky-ui/core": "=>0.0.1",
     "@sky-ui/table": "=>0.0.1",
     "@sky-ui/icons": "=>0.0.1"

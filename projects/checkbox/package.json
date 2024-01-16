@@ -4,7 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^17.0.9",
     "@angular/core": "^17.0.9",
-    "@angular/forms": "^17.0.9",
+    "@angular/forms": "^17.0.9"
+  },
+  "dependencies": {
     "@sky-ui/core": ">=0.0.1",
     "@sky-ui/icons": ">=0.0.1",
     "@sky-ui/field-error": ">=0.0.1"

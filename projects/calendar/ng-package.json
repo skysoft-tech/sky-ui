@@ -4,5 +4,11 @@
   "lib": {
     "entryFile": "src/index.ts",
     "styleIncludePaths": ["../../../"]
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "@sky-ui/core",
+    "@sky-ui/icons",
+    "@sky-ui/button",
+    "@sky-ui/date-adapter"
+  ]
 }

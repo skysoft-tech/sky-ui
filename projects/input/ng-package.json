@@ -4,5 +4,11 @@
   "lib": {
     "entryFile": "src/index.ts",
     "styleIncludePaths": ["../../../"]
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "@sky-ui/core",
+    "@sky-ui/field-error",
+    "@sky-ui/primitive-input",
+    "@sky-ui/icons"
+  ]
 }
