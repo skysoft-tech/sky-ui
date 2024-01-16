@@ -5,7 +5,9 @@
     "@angular/common": "^17.0.9",
     "@angular/core": "^17.0.9",
     "@angular/forms": "17.0.9",
-    "@angular/cdk": "17.0.5",
+    "@angular/cdk": "17.0.5"
+  },
+  "dependencies": {
     "@sky-ui/core": ">=0.0.1",
     "@sky-ui/field-error": ">=0.0.1",
     "@sky-ui/primitive-input": ">=0.0.1",

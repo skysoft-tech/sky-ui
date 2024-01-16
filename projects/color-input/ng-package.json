@@ -6,6 +6,11 @@
     "styleIncludePaths": ["../../../"]
   },
   "allowedNonPeerDependencies": [
-    "angular-imask"
+    "angular-imask",
+    "@sky-ui/core",
+    "@sky-ui/icons",
+    "@sky-ui/button",
+    "@sky-ui/primitive-input",
+    "@sky-ui/color-picker"
   ]
 }

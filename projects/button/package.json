@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.0.9",
-    "@angular/core": "^17.0.9",
+    "@angular/core": "^17.0.9"
+  },
+  "dependencies": {
     "@sky-ui/core": ">=0.0.1",
     "@sky-ui/loader": ">=0.0.1"
   },
