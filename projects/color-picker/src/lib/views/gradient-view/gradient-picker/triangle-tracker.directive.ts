@@ -219,7 +219,7 @@ export class SkyTriangleTrackerDirective extends SkyMouseTracker implements Afte
         return { x, y };
     }
 
-    private getDataFromPositio({ x, y }: SkyPosition): [number, number] {
+    private getDataFromPosition({ x, y }: SkyPosition): [number, number] {
         const { height, width } = this.origin.getBoundingClientRect();
         const sqrt3 = Math.sqrt(3);
 
@@ -231,7 +231,7 @@ export class SkyTriangleTrackerDirective extends SkyMouseTracker implements Afte
 
     private emitValueChange(p: SkyPosition): void {
         const { height, width } = this.origin.getBoundingClientRect();
-        const [saturation, value] = this.getDataFromPositio(p);
+        const [saturation, value] = this.getDataFromPosition(p);
 
         const s = saturation / height;
         const v = value / width;

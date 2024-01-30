@@ -37,7 +37,7 @@ export class SkyGradientPickerComponent implements OnInit, AfterViewInit, OnChan
         return ColorConverter.rgb2hex(this.color);
     }
 
-    get puusreColor(): Hex {
+    get pureColor(): Hex {
         return ColorConverter.hsv2hex([this.hue, 1, 1]);
     }
 
@@ -61,7 +61,7 @@ export class SkyGradientPickerComponent implements OnInit, AfterViewInit, OnChan
     }
 
     ngAfterViewInit(): void {
-        this.drawTriangle(this.puusreColor);
+        this.drawTriangle(this.pureColor);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -74,7 +74,7 @@ export class SkyGradientPickerComponent implements OnInit, AfterViewInit, OnChan
                 this.saturation = s;
             }
 
-            this.drawTriangle(this.puusreColor);
+            this.drawTriangle(this.pureColor);
         }
     }
 
