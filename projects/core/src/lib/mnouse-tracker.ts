@@ -11,11 +11,11 @@ export interface SkyPosition {
 export abstract class SkyMouseTracker {
     protected trackEvent: Observable<SkyPosition>;
 
-    protected constructor(element: ElementRef<any>, documentRef: Document, destroy: SkyDestroyService) {
+    protected constructor(element: ElementRef<HTMLElement>, documentRef: Document, destroy: SkyDestroyService) {
         this.trackEvent = fromEvent<MouseEvent>(element.nativeElement, 'mousedown').pipe(
             takeUntil(destroy),
             filter(e => this.shouldTrack(e, element.nativeElement.getBoundingClientRect())),
-            tap(e => e.preventDefault),
+            tap(e => e.preventDefault()),
             switchMap(({ clientX, clientY }: MouseEvent) => {
                 const mouveEvent = fromEvent<MouseEvent>(documentRef, `mousemove`).pipe(
                     takeUntil(fromEvent(documentRef, 'mouseup')),
@@ -40,6 +40,7 @@ export abstract class SkyMouseTracker {
         };
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     protected shouldTrack(event: MouseEvent, { left, top, width, height }: DOMRect): boolean {
         return true;
     }
