@@ -35,7 +35,6 @@ export class SkyColorFieldDirective extends AbstractInputAccessor<SkyColorInputC
 
         this.mask.on('complete', () => {
             if (ColorValidator.isHexValid(this.mask.value as Hex)) {
-                console.log('complete');
                 this.host.onValueChange(this.mask.value as Hex);
             } else {
                 this.host.onValueChange(null);

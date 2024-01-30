@@ -1,4 +1,18 @@
+@use "sass:map";
+
 .sky-gradient-picker {
+
+  // depends on svg that described in gradient-picker.component.html
+  $trianglePosition: (
+    top: 27px,
+    left: 62px
+  );
+
+  $triangleCenter: (
+    x: 42px,
+    y: 77px
+  );
+
   .circle {
     position: relative;
     width: 100%;
@@ -23,9 +37,10 @@
 
     .triangle-wrapper {
       position: relative;
-      z-index: 2;
+      z-index: 5;
       width: 100%;
       height: 100%;
+      pointer-events: none;
 
       .rotatable {
         transform-origin: center;
@@ -35,5 +50,13 @@
         transform-origin: 50% 50%;
       }
     }
+  }
+
+  canvas {
+    position: absolute;
+    z-index: 2;
+    left: map.get($trianglePosition, left);
+    top: map.get($trianglePosition, top);
+    transform-origin: map.get($triangleCenter, x) map.get($triangleCenter, y);
   }
 }

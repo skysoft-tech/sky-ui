@@ -32,10 +32,6 @@ $mapping: (
         &::before {
           background: theming.get($theme, 'background-color');
         }
-
-        .selector-point {
-          stroke: theming.get($theme, 'circle-color');
-        }
       }
     }
 
