@@ -44,7 +44,7 @@ export class SkyGradientViewComponent implements OnInit, OnChanges {
     }
 
     get colorInRgb(): Rgb {
-        const [r, g, b, a] = this.colorInRgba ?? [0, 0, 0];
+        const [r, g, b] = this.colorInRgba ?? [0, 0, 0];
         return [r, g, b];
     }
 

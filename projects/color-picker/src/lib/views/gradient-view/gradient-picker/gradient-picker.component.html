@@ -4,33 +4,14 @@
       #origin
       class="triangle-origin"
       stroke="transparent"
-      points="62,27 193,104 62,180"
+      points="62,27 194.5,103.5 62,180"
       style="fill: transparent" />
-    <polygon
-      class="rotatable"
-      stroke="#0000000e"
-      [style.transform]="'rotate(' + hue + 'deg)'"
-      points="62,27 193,104 62,180"
-      style="fill: url(#colorGradient)" />
-    <polygon
-      class="rotatable"
-      [style.transform]="'rotate(' + hue + 'deg)'"
-      #tracker
-      skyTriangleTracker
-      [initialPosition]="{ x: saturation, y: value }"
-      (valueChange)="saturationValueChange($event)"
-      [origin]="origin"
-      [angle]="hue"
-      stroke="#0000000e"
-      points="62,27 193,104 62,180"
-      style="fill: url(#shadowGradient)" />
-
     <rect
       class="pointer unclickable"
       [style.transform]="'rotate(' + hue + 'deg)'"
       stroke="#c9c4c4"
       x="193"
-      y="104"
+      y="103"
       width="16"
       height="1"
       [style.fill]="'#c9c4c4'" />
@@ -38,26 +19,21 @@
     <circle
       class="rotatable unclickable selector-point"
       r="5"
+      [style.stroke]="selectorBorder"
       [style.transform]="'rotate(' + hue + 'deg)'"
       [style.fill]="colorInHex"
-      [style.cx]="(triangle?.cursorPosition?.x ?? 0) + 62"
-      [style.cy]="(triangle?.cursorPosition?.y ?? 0) + 27"></circle>
-    <defs>
-      <linearGradient
-        id="colorGradient"
-        x1="100%"
-        y1="100%"
-        x2="0%"
-        y2="100%"
-        gradientTransform="translate(-0.1, 0) rotate(-6)">
-        <stop offset="5%" [style.stop-color]="pureColor" />
-        <stop offset="95%" style="stop-color: #fff" />
-      </linearGradient>
-
-      <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="5%" style="stop-color: #000" />
-        <stop offset="50%" style="stop-color: #ffffff00" />
-      </linearGradient>
-    </defs>
+      [style.cx.px]="(triangle?.cursorPosition?.x ?? 0) + 62"
+      [style.cy.px]="(triangle?.cursorPosition?.y ?? 0) + 27"></circle>
   </svg>
+
+  <canvas
+    #canvas
+    [style.transform]="'rotate(' + hue + 'deg)'"
+    skyTriangleTracker
+    [value]="[saturation, value]"
+    (valueChange)="saturationValueChange($event)"
+    [origin]="origin"
+    [angle]="hue"
+    width="132,5"
+    height="153"></canvas>
 </div>
