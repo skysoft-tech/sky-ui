@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import { DateRange, SkyCalendarComponent, SkyCalendarModule } from '@sky-ui/calendar';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DateRange, SkyCalendarInput, SkyCalendarModule } from '@sky-ui/calendar';
 
 @Component({
     selector: 'app-range-calendar-range-demo',
@@ -9,20 +9,13 @@ import { DateRange, SkyCalendarComponent, SkyCalendarModule } from '@sky-ui/cale
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarRangeDemoComponent {
-    @ViewChild('calendar') calendar: SkyCalendarComponent | undefined;
-
-    private selectedDate: Date | undefined;
+    selectedDate: SkyCalendarInput<Date> | null = null;
 
     selectDate(value: Date): void {
-        if (this.calendar) {
-            if (!this.selectedDate) {
-                this.selectedDate = value;
-                this.calendar.selected = value;
-            } else {
-                this.calendar.selected = new DateRange(this.selectedDate, value);
-                this.selectedDate = undefined;
-            }
-            console.log(this.calendar);
+        if (this.selectedDate instanceof Date) {
+            this.selectedDate = new DateRange(this.selectedDate as Date, value);
+        } else {
+            this.selectedDate = value;
         }
     }
 }

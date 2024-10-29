@@ -1,10 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import {
-    PeriodWithType,
-    SkyCalendarComponent,
-    SkyCalendarModule,
-    SkyCalendarSpecialDatesInput,
-} from '@sky-ui/calendar';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PeriodWithType, SkyCalendarInput, SkyCalendarModule, SkyCalendarSpecialDatesInput } from '@sky-ui/calendar';
 
 @Component({
     selector: 'app-docs-calendar-special-dates-demo',
@@ -14,7 +9,7 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarSpecialDatesDemoComponent {
-    @ViewChild('calendar') calendar: SkyCalendarComponent | undefined;
+    selectedDate: SkyCalendarInput<Date> = new Date();
 
     specialDates: SkyCalendarSpecialDatesInput<Date>;
 
@@ -39,8 +34,6 @@ export class CalendarSpecialDatesDemoComponent {
     }
 
     selectDate(value: Date): void {
-        if (this.calendar) {
-            this.calendar.selected = value;
-        }
+        this.selectedDate = value;
     }
 }
