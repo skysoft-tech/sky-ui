@@ -7,20 +7,65 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@ng-doc/builder:application",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/examples/dev-app",
         "index": "examples/dev-app/src/index.html",
-        "main": "examples/dev-app/src/main.ts",
-        "polyfills": ["zone.js"],
+        "browser": "examples/dev-app/src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "examples/dev-app/tsconfig.app.json",
-        "assets": ["examples/dev-app/src/favicon.ico", "examples/dev-app/src/assets"],
-        "styles": ["examples/dev-app/src/styles.scss"],
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/app/assets",
+            "output": "assets/ng-doc/app"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/ui-kit/assets",
+            "output": "assets/ng-doc/ui-kit"
+          },
+          {
+            "glob": "**/*",
+            "input": "ng-doc/dev-app/assets",
+            "output": "assets/ng-doc"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/app/assets",
+            "output": "assets/ng-doc/app"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/ui-kit/assets",
+            "output": "assets/ng-doc/ui-kit"
+          },
+          {
+            "glob": "**/*",
+            "input": "ng-doc/dev-app/assets",
+            "output": "assets/ng-doc"
+          },
+          "examples/dev-app/src/favicon.ico",
+          "examples/dev-app/src/assets"
+        ],
+        "styles": [
+          "node_modules/@ng-doc/app/styles/global.css",
+          "examples/dev-app/src/styles.scss"
+        ],
         "scripts": [],
         "stylePreprocessorOptions": {
-          "includePaths": ["projects/theme/src/lib"]
-        }
+          "includePaths": [
+            "projects/theme/src/lib", "."
+          ]
+        },
+        "allowedCommonJsDependencies": [
+          "@ng-doc/core"
+        ]
       },
       "configurations": {
         "production": {
@@ -39,9 +84,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
@@ -50,7 +93,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@ng-doc/builder:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "dev-app:build:production"
@@ -69,11 +112,15 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "examples/dev-app/jest.config.ts"
       }

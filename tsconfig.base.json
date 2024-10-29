@@ -15,6 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-doc/generated": [
+        "./ng-doc/dev-app/index.ts"
+      ],
+      "@ng-doc/generated/*": [
+        "./ng-doc/dev-app/*"
+      ],
       "@sky-ui/breadcrumb": ["projects/breadcrumb/src/index.ts"],
       "@sky-ui/button": ["projects/button/src/index.ts"],
       "@sky-ui/calendar": ["projects/calendar/src/index.ts"],

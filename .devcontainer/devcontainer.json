@@ -1,0 +1,16 @@
+{
+	"name": "skysoft/devcontainers/sky-ui",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+            "version": "18.16"
+        }
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mhutchie.git-graph"
+			]
+		}
+	}
+}

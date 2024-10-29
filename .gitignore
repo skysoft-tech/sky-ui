@@ -40,3 +40,7 @@ Thumbs.db
 
 .nx
 .angular
+
+
+# NgDoc files
+/ng-doc
