@@ -10,7 +10,7 @@ day view in a single click.
 
 This example shows the simplest use of the calendar - selecting a single date.
 
-{{ NgDocActions.demo("CalendarSimpleDemoComponent") }}
+{{ NgDocActions.demo("CalendarDemoComponent") }}
 
 ## Range usage
 

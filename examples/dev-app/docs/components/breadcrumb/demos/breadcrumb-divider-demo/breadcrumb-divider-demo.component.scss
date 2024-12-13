@@ -1,0 +1,7 @@
+:host ::ng-deep sky-breadcrumb {
+  .wrapper-breadcrumb li {
+    &::after {
+      content: ">" !important;
+    }
+  }
+}

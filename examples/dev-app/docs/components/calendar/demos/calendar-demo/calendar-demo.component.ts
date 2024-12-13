@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SkyCalendarInput, SkyCalendarModule } from '@sky-ui/calendar';
 
 @Component({
-    selector: 'app-docs-calendar-simple-demo',
+    selector: 'app-calendar-demo',
     standalone: true,
     imports: [SkyCalendarModule],
-    templateUrl: './calendar-simple-demo.component.html',
+    templateUrl: './calendar-demo.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalendarSimpleDemoComponent {
+export class CalendarDemoComponent {
     selectedDate: SkyCalendarInput<Date> = new Date();
 
     selectDate(value: Date): void {

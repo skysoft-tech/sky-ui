@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DateRange, SkyCalendarInput, SkyCalendarModule } from '@sky-ui/calendar';
 
 @Component({
-    selector: 'app-range-calendar-range-demo',
+    selector: 'app-calendar-range-demo',
     standalone: true,
     imports: [SkyCalendarModule],
     templateUrl: './calendar-range-demo.component.html',

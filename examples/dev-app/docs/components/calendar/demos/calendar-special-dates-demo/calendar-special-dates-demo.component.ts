@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PeriodWithType, SkyCalendarInput, SkyCalendarModule, SkyCalendarSpecialDatesInput } from '@sky-ui/calendar';
 
 @Component({
-    selector: 'app-docs-calendar-special-dates-demo',
+    selector: 'app-calendar-special-dates-demo',
     standalone: true,
     imports: [SkyCalendarModule],
     templateUrl: './calendar-special-dates-demo.component.html',

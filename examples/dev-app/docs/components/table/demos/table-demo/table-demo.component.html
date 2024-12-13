@@ -1,0 +1,11 @@
+<table sky-table [dataSource]="demoData" matSort>
+  <ng-container skyColumnDef="id">
+    <sky-header-cell skyHeaderCellDef>Id</sky-header-cell>
+    <sky-cell skyCellDef="let row"> 11 </sky-cell>
+  </ng-container>
+
+  <ng-container skyColumnDef="name">
+    <sky-header-cell skyHeaderCellDef>Name</sky-header-cell>
+    <sky-cell skyCellDef="let row"> 22 </sky-cell>
+  </ng-container>
+</table>

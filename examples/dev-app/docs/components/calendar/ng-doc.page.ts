@@ -1,22 +1,26 @@
 import { NgDocPage } from '@ng-doc/core';
 import GuidesCategory from '../ng-doc.category';
-import { CalendarMonthViewDemoComponent } from './demos/month-view/calendar-month-view-demo.component';
-import { CalendarRangeDemoComponent } from './demos/range/calendar-range-demo.component';
-import { CalendarSimpleDemoComponent } from './demos/simple/calendar-simple-demo.component';
-import { CalendarSpecialDatesDemoComponent } from './demos/special-dates/calendar-special-dates-demo.component';
+import { CalendarMonthViewDemoComponent } from './demos/calendar-month-view-demo/calendar-month-view-demo.component';
+import { CalendarRangeDemoComponent } from './demos/calendar-range-demo/calendar-range-demo.component';
+import { CalendarDemoComponent } from './demos/calendar-demo/calendar-demo.component';
+import { CalendarSpecialDatesDemoComponent } from './demos/calendar-special-dates-demo/calendar-special-dates-demo.component';
 
 const CalendarPage: NgDocPage = {
     title: 'Calendar',
     mdFile: './index.md',
     category: GuidesCategory,
     demos: {
+        CalendarDemoComponent,
         CalendarMonthViewDemoComponent,
         CalendarRangeDemoComponent,
-        CalendarSimpleDemoComponent,
         CalendarSpecialDatesDemoComponent,
     },
     route: {
         children: [
+            {
+                path: 'calendar-demo',
+                component: CalendarDemoComponent,
+            },
             {
                 path: 'calendar-month-view-demo',
                 component: CalendarMonthViewDemoComponent,
@@ -24,10 +28,6 @@ const CalendarPage: NgDocPage = {
             {
                 path: 'calendar-range-demo',
                 component: CalendarRangeDemoComponent,
-            },
-            {
-                path: 'calendar-simple-demo',
-                component: CalendarSimpleDemoComponent,
             },
             {
                 path: 'calendar-special-dates-demo',
